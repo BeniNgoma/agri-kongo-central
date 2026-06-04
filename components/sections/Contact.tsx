@@ -1,0 +1,230 @@
+"use client";
+
+import { useState } from "react";
+import dynamic from "next/dynamic";
+import { motion, AnimatePresence } from "motion/react";
+import { MapPin, Phone, Mail, Clock, CheckCircle, Share2, Link, MessageSquare, Play } from "lucide-react";
+
+const MapComponent = dynamic(() => import("@/components/MapComponent"), { ssr: false });
+
+export default function Contact() {
+  const [form, setForm] = useState({
+    prenom: "", nom: "", email: "", telephone: "", organisation: "", objet: "", message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  return (
+    <section id="contact" className="bg-light-bg py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-green-bright/10 text-green-mid mb-4 tracking-wider uppercase">
+            Contact
+          </span>
+          <h2 className="font-playfair text-4xl lg:text-5xl font-bold text-green-deep mb-4">
+            Nous <span className="text-gradient">Rejoindre</span>
+          </h2>
+          <p className="text-gray-500 max-w-2xl mx-auto">
+            Producteur de Banzangongo ou Boko, partenaire, bailleur ou journaliste — contactez
+            l'équipe CDI-Bwamanda.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Form */}
+          <div className="bg-white rounded-3xl p-8 shadow-md border border-gray-100">
+            <AnimatePresence mode="wait">
+              {submitted ? (
+                <motion.div
+                  key="success"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex flex-col items-center justify-center h-full py-16 text-center"
+                >
+                  <div className="w-16 h-16 rounded-full bg-green-bright/15 flex items-center justify-center mb-4">
+                    <CheckCircle className="w-8 h-8 text-green-bright" />
+                  </div>
+                  <h3 className="font-playfair text-2xl font-semibold text-green-deep mb-2">
+                    Message envoyé !
+                  </h3>
+                  <p className="text-gray-500 text-sm">
+                    L'équipe CDI-Bwamanda vous répondra dans les 48 heures ouvrables.
+                  </p>
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="mt-6 px-6 py-2 rounded-xl text-sm bg-green-mid text-white hover:bg-green-deep transition-colors"
+                  >
+                    Nouveau message
+                  </button>
+                </motion.div>
+              ) : (
+                <motion.form
+                  key="form"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  onSubmit={handleSubmit}
+                  className="space-y-5"
+                >
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-medium text-gray-600 mb-1.5">Prénom</label>
+                      <input
+                        name="prenom"
+                        value={form.prenom}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-green-bright transition-colors"
+                        placeholder="Jean"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-gray-600 mb-1.5">Nom</label>
+                      <input
+                        name="nom"
+                        value={form.nom}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-green-bright transition-colors"
+                        placeholder="Mabunda"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-gray-600 mb-1.5">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-green-bright transition-colors"
+                      placeholder="jean@exemple.cd"
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-medium text-gray-600 mb-1.5">Téléphone</label>
+                      <input
+                        name="telephone"
+                        value={form.telephone}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-green-bright transition-colors"
+                        placeholder="+243 XXX XXX XXX"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-gray-600 mb-1.5">Organisation</label>
+                      <input
+                        name="organisation"
+                        value={form.organisation}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-green-bright transition-colors"
+                        placeholder="CDI-Bwamanda"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-gray-600 mb-1.5">Objet</label>
+                    <select
+                      name="objet"
+                      value={form.objet}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-green-bright transition-colors bg-white"
+                    >
+                      <option value="">Sélectionner un objet</option>
+                      <option value="rejoindre">Rejoindre le programme</option>
+                      <option value="partenariat">Partenariat</option>
+                      <option value="information">Demande d'information</option>
+                      <option value="presse">Presse / Média</option>
+                      <option value="autre">Autre</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-gray-600 mb-1.5">Message</label>
+                    <textarea
+                      name="message"
+                      value={form.message}
+                      onChange={handleChange}
+                      required
+                      rows={4}
+                      className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-green-bright transition-colors resize-none"
+                      placeholder="Votre message..."
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-gold to-gold-light hover:opacity-90 transition-opacity shadow-md"
+                  >
+                    Envoyer le Message
+                  </button>
+                </motion.form>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Info + Map */}
+          <div className="space-y-6">
+            {/* Info cards */}
+            <div className="bg-white rounded-3xl p-6 shadow-md border border-gray-100 space-y-5">
+              {[
+                { icon: MapPin, label: "Siège", value: "CDI-Bwamanda, Territoire de Mbanza-Ngungu, Province du Kongo Central, RD Congo" },
+                { icon: MapPin, label: "Zone d'intervention", value: "Banzangongo & Boko — Territoire de Mbanza-Ngungu, Kongo Central" },
+                { icon: Phone, label: "Téléphone", value: "+243 XXX XXX XXX" },
+                { icon: Mail, label: "Email", value: "contact@cdibwamanda.org" },
+                { icon: Clock, label: "Horaires", value: "Lun–Ven 08h00–17h00 (heure de Kinshasa)" },
+              ].map((info, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-green-bright/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <info.icon className="w-4 h-4 text-green-bright" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-medium text-gray-400 mb-0.5">{info.label}</div>
+                    <div className="text-sm text-gray-700">{info.value}</div>
+                  </div>
+                </div>
+              ))}
+
+              {/* Social */}
+              <div className="pt-2 flex gap-3">
+                {[Share2, Link, MessageSquare, Play].map((Icon, i) => (
+                  <a key={i} href="#" className="w-9 h-9 rounded-xl bg-green-bright/10 flex items-center justify-center hover:bg-green-mid transition-colors group">
+                    <Icon className="w-4 h-4 text-green-mid group-hover:text-white" />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Map */}
+            <div className="bg-white rounded-3xl overflow-hidden shadow-md border border-gray-100 h-72">
+              <MapComponent />
+            </div>
+
+            {/* Map legend */}
+            <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-wrap gap-4">
+              {[
+                { color: "#3a9e68", name: "Banzangongo", role: "Zone de production principale" },
+                { color: "#c9a84c", name: "Boko", role: "Axe de commercialisation" },
+                { color: "#ffffff", name: "Mbanza-Ngungu", role: "Chef-lieu du territoire" },
+              ].map((item) => (
+                <div key={item.name} className="flex items-center gap-2 text-xs">
+                  <div className="w-3 h-3 rounded-full border border-gray-200" style={{ background: item.color }} />
+                  <span className="font-medium text-gray-700">{item.name}</span>
+                  <span className="text-gray-400">— {item.role}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

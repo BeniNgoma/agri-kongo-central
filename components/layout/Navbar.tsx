@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
-import { Leaf, Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const navLinks = [
   { label: "Accueil", href: "#hero" },
@@ -74,17 +75,22 @@ export default function Navbar() {
           {/* Logo */}
           <button
             onClick={() => handleNavClick("#hero")}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-2 group"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-bright to-gold flex items-center justify-center shadow-lg">
-              <Leaf className="w-5 h-5 text-white" />
-            </div>
-            <div className="text-left">
+            <Image
+              src="/logo.png"
+              alt="Nduenga Agro Industries"
+              width={52}
+              height={52}
+              className="rounded-full object-cover drop-shadow-lg"
+              priority
+            />
+            <div className="text-left hidden sm:block">
               <div className="font-playfair font-bold text-white text-sm leading-tight">
-                CDI-Bwamanda
+                Nduenga Agro Industries
               </div>
-              <div className="text-gold-light text-xs leading-tight hidden sm:block">
-                Programme Agricole — Kongo Central
+              <div className="text-gold-light text-xs leading-tight">
+                Produire au Congo, Transformer au Congo
               </div>
             </div>
           </button>

@@ -1,4 +1,5 @@
-import { Leaf, Share2, Link, MessageSquare, Play, Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
+import { Share2, Link, MessageSquare, Play, Mail, Phone, MapPin } from "lucide-react";
 
 const footerLinks = {
   about: [
@@ -29,15 +30,19 @@ export default function Footer() {
           {/* Col 1 — Logo + description */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-bright to-gold flex items-center justify-center">
-                <Leaf className="w-5 h-5 text-white" />
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Nduenga Agro Industries"
+                width={56}
+                height={56}
+                className="rounded-full object-cover"
+              />
               <div>
                 <div className="font-playfair font-bold text-white text-sm leading-tight">
-                  CDI-Bwamanda
+                  Nduenga Agro Industries
                 </div>
                 <div className="text-gold/80 text-xs leading-tight">
-                  Programme Agricole
+                  Produire au Congo, Transformer au Congo
                 </div>
               </div>
             </div>
@@ -137,11 +142,11 @@ export default function Footer() {
         {/* Copyright */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-white/40 text-xs">
           <span>
-            © 2026 CDI-Bwamanda — Programme de Relance Agricole du Kongo Central. Tous droits
+            © 2026 Nduenga Agro Industries — Programme de Relance Agricole du Kongo Central. Tous droits
             réservés.
           </span>
           <div className="flex items-center gap-1 text-white/30">
-            <Leaf className="w-3 h-3 text-green-bright" />
+            <Image src="/logo.png" alt="logo" width={16} height={16} className="rounded-full opacity-60" />
             <span>Banzangongo & Boko, Territoire de Mbanza-Ngungu</span>
           </div>
         </div>

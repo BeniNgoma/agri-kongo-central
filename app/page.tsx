@@ -8,7 +8,6 @@ import Activites from "@/components/sections/Activites";
 import Impacts from "@/components/sections/Impacts";
 import Galerie from "@/components/sections/Galerie";
 import Equipe from "@/components/sections/Equipe";
-import Partenaires from "@/components/sections/Partenaires";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
@@ -24,7 +23,6 @@ export default function Home() {
         <Impacts />
         <Galerie />
         <Equipe />
-        <Partenaires />
         <Contact />
       </main>
       <Footer />

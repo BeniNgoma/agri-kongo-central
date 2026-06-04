@@ -4,7 +4,6 @@ const footerLinks = {
   about: [
     { label: "À Propos du Programme", href: "#a-propos" },
     { label: "Notre Équipe", href: "#equipe" },
-    { label: "Nos Partenaires", href: "#partenaires" },
     { label: "Notre Approche", href: "#programme" },
   ],
   services: [

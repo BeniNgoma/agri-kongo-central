@@ -12,7 +12,6 @@ const navLinks = [
     submenu: [
       { label: "À Propos du Programme", href: "#a-propos", desc: "Notre mission et vision pour le Kongo Central" },
       { label: "Notre Équipe", href: "#equipe", desc: "L'équipe dédiée de CDI-Bwamanda" },
-      { label: "Nos Partenaires", href: "#partenaires", desc: "FOREC, Ministère de l'Économie et partenaires" },
       { label: "Notre Approche", href: "#programme", desc: "5 composantes pour une transformation durable" },
     ],
   },

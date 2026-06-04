@@ -85,11 +85,11 @@ export default function Navbar() {
               priority
             />
             <div className="text-left hidden md:block">
-              <div className="font-playfair font-bold text-green-deep text-base leading-tight">
+              <div className="font-playfair font-bold text-base leading-tight bg-gradient-to-r from-green-mid to-green-bright bg-clip-text text-transparent">
                 Nduenga Agro Industries
               </div>
-              <div className="text-gold text-xs leading-tight font-medium">
-                Produire au Congo, Transformer au Congo
+              <div className="text-xs leading-tight font-medium text-gray-400 tracking-wide">
+                Produire au Congo · Transformer au Congo
               </div>
             </div>
           </button>

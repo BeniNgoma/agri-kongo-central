@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
-import { ArrowDown, Users, Truck, TrendingUp, Globe } from "lucide-react";
+import { ArrowDown, Users, Truck, TrendingUp, Globe, MapPin } from "lucide-react";
 
 const stats = [
   { value: "2 000", label: "Producteurs agricoles", icon: Users },
@@ -12,53 +11,22 @@ const stats = [
   { value: "2M+", label: "Bénéficiaires indirects", icon: Globe },
 ];
 
+const crops = [
+  { emoji: "🌽", name: "Maïs", desc: "Culture principale" },
+  { emoji: "🥜", name: "Arachide", desc: "Oléagineux local" },
+  { emoji: "🌱", name: "Soja", desc: "Transformation locale" },
+  { emoji: "🌿", name: "Manioc", desc: "Sécurité alimentaire" },
+];
+
 export default function Hero() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const particles = Array.from({ length: 30 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 3 + 1,
-      dx: (Math.random() - 0.5) * 0.4,
-      dy: (Math.random() - 0.5) * 0.4,
-      opacity: Math.random() * 0.4 + 0.1,
-    }));
-
-    let animId: number;
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p) => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(58, 158, 104, ${p.opacity})`;
-        ctx.fill();
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-      });
-      animId = requestAnimationFrame(draw);
-    };
-    draw();
-    return () => cancelAnimationFrame(animId);
-  }, []);
-
   const handleScroll = (href: string) => {
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image */}
+    <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden bg-green-deep">
+
+      {/* ── Background image avec overlay diagonal ── */}
       <Image
         src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1920&q=80"
         alt="Champs agricoles Kongo Central"
@@ -66,107 +34,191 @@ export default function Hero() {
         className="object-cover"
         priority
       />
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-green-deep/65" />
-      {/* Particles */}
-      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
+      {/* Overlay gradient diagonal — gauche foncé, droite plus transparent */}
+      <div className="absolute inset-0"
+        style={{
+          background: "linear-gradient(110deg, rgba(15,36,25,0.92) 0%, rgba(15,36,25,0.78) 45%, rgba(15,36,25,0.45) 100%)"
+        }}
+      />
+      {/* Ligne décorative diagonale */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-[38%] w-px h-full opacity-20"
+          style={{ background: "linear-gradient(to bottom, transparent, #c9a84c, transparent)" }} />
+      </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-0 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen pt-24 lg:pt-20">
-          {/* Left content */}
-          <div>
-            {/* Badge */}
+      {/* ── Contenu principal ── */}
+      <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 pb-24">
+        <div className="grid lg:grid-cols-5 gap-10 items-center w-full">
+
+          {/* ── Colonne gauche (3/5) ── */}
+          <div className="lg:col-span-3">
+
+            {/* Badge localisation */}
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium mb-6 border border-gold/30 text-gold-light"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium mb-5 border border-gold/30 text-gold-light"
               style={{ background: "rgba(201,168,76,0.12)" }}
             >
-              🌿 Kongo Central — Banzangongo &amp; Boko, Territoire de Mbanza-Ngungu — RD Congo
+              <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
+              Banzangongo & Boko — Territoire de Mbanza-Ngungu, Kongo Central, RDC
             </motion.div>
 
-            {/* Title */}
+            {/* Titre principal */}
             <motion.h1
-              className="font-playfair text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 0.7 }}
+              className="font-playfair text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5"
             >
-              Relance Agricole du{" "}
-              <span className="text-gradient">Kongo Central</span>
+              Relance Agricole
+              <br />
+              <span className="text-gradient">du Kongo Central</span>
             </motion.h1>
 
-            {/* Subtitle */}
+            {/* Sous-titre */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
-              className="text-white/80 text-lg leading-relaxed mb-8 max-w-xl"
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="text-white/75 text-base lg:text-lg leading-relaxed mb-8 max-w-lg"
             >
-              Un programme intégré pour transformer l'agriculture, créer de la valeur et améliorer
-              durablement les conditions de vie des populations rurales de{" "}
-              <strong className="text-gold-light">Banzangongo</strong> et{" "}
-              <strong className="text-gold-light">Boko</strong>, dans le territoire de
-              Mbanza-Ngungu, province du Kongo Central, RD Congo.
+              Transformer durablement la production de{" "}
+              <span className="text-gold-light font-semibold">maïs</span> et{" "}
+              <span className="text-gold-light font-semibold">d'arachide</span> pour améliorer les
+              conditions de vie des communautés rurales de Banzangongo et Boko.
             </motion.p>
 
-            {/* Buttons */}
+            {/* Tags cultures — identité Kongo Central */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4"
+              transition={{ delay: 0.65, duration: 0.6 }}
+              className="flex flex-wrap gap-2 mb-8"
+            >
+              {crops.map((c, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-white/90 border border-white/15"
+                  style={{ background: "rgba(255,255,255,0.08)", backdropFilter: "blur(8px)" }}
+                >
+                  <span className="text-base">{c.emoji}</span>
+                  <span>{c.name}</span>
+                  <span className="text-white/40 hidden sm:inline">· {c.desc}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Boutons CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              className="flex flex-col sm:flex-row gap-3"
             >
               <button
                 onClick={() => handleScroll("#programme")}
-                className="px-8 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-gold to-gold-light hover:opacity-90 transition-opacity shadow-xl text-sm"
+                className="px-7 py-3.5 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-gold to-gold-light hover:opacity-90 transition-opacity shadow-xl"
               >
                 Découvrir le Programme
               </button>
               <button
                 onClick={() => handleScroll("#contact")}
-                className="px-8 py-4 rounded-xl font-semibold text-white border border-white/30 hover:bg-white/10 transition-colors text-sm"
+                className="px-7 py-3.5 rounded-xl font-semibold text-white text-sm border border-white/25 hover:bg-white/10 transition-colors"
               >
                 Nous Contacter
               </button>
             </motion.div>
           </div>
 
-          {/* Right — Stat cards */}
-          <div className="grid grid-cols-2 gap-4">
+          {/* ── Colonne droite (2/5) — Stats cards ── */}
+          <div className="lg:col-span-2 grid grid-cols-2 gap-3">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.0 + i * 0.15, duration: 0.6 }}
-                className="glass rounded-2xl p-5"
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 + i * 0.12, duration: 0.6 }}
+                className="rounded-2xl p-5 group hover:scale-105 transition-transform"
+                style={{
+                  background: "rgba(255,255,255,0.07)",
+                  backdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                }}
               >
-                <stat.icon className="w-8 h-8 text-gold mb-3" />
-                <div className="font-playfair text-3xl font-bold text-white mb-1">
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center mb-3"
+                  style={{ background: "rgba(201,168,76,0.2)" }}>
+                  <stat.icon className="w-4.5 h-4.5 text-gold" style={{ width: "18px", height: "18px" }} />
+                </div>
+                <div className="font-playfair text-2xl font-bold text-white mb-0.5">
                   {stat.value}
                 </div>
-                <div className="text-white/60 text-xs leading-tight">{stat.label}</div>
+                <div className="text-white/55 text-xs leading-tight">{stat.label}</div>
               </motion.div>
             ))}
+
+            {/* Card image maïs/arachide */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.1, duration: 0.6 }}
+              className="col-span-2 rounded-2xl overflow-hidden relative h-28"
+              style={{ border: "1px solid rgba(255,255,255,0.12)" }}
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&q=80"
+                alt="Maïs et arachide Kongo Central"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 flex items-end p-3"
+                style={{ background: "linear-gradient(to top, rgba(15,36,25,0.85), transparent)" }}>
+                <div className="text-xs text-white/80 font-medium flex items-center gap-2">
+                  <span>🌽 Maïs</span>
+                  <span className="text-gold/50">·</span>
+                  <span>🥜 Arachide</span>
+                  <span className="text-gold/50">·</span>
+                  <span>Kongo Central</span>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* ── Bande cultures en bas ── */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 1.5 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        className="relative z-10 border-t"
+        style={{ borderColor: "rgba(255,255,255,0.1)", background: "rgba(0,0,0,0.25)", backdropFilter: "blur(12px)" }}
       >
-        <button
-          onClick={() => handleScroll("#a-propos")}
-          className="flex flex-col items-center gap-1 text-white/50 hover:text-white/80 transition-colors"
-        >
-          <span className="text-xs tracking-widest uppercase">Scroll</span>
-          <ArrowDown className="w-4 h-4" />
-        </button>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-5 flex-wrap">
+            {[
+              { emoji: "🌽", label: "Maïs · 6 000 t" },
+              { emoji: "🥜", label: "Arachide · Production locale" },
+              { emoji: "🌱", label: "Soja · 4 000 t" },
+              { emoji: "🚛", label: "5 Camions · Transport" },
+              { emoji: "🏗️", label: "2 Silos · Stockage" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-1.5 text-white/60 text-xs">
+                <span>{item.emoji}</span>
+                <span>{item.label}</span>
+                {i < 4 && <span className="text-gold/30 hidden sm:inline ml-3">│</span>}
+              </div>
+            ))}
+          </div>
+          <button
+            onClick={() => handleScroll("#a-propos")}
+            className="flex items-center gap-1.5 text-white/40 hover:text-white/70 text-xs transition-colors"
+          >
+            <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
+            <span>Explorer</span>
+          </button>
+        </div>
       </motion.div>
     </section>
   );

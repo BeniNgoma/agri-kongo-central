@@ -72,7 +72,7 @@ export default function Hero() {
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-0 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen pt-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen pt-24 lg:pt-20">
           {/* Left content */}
           <div>
             {/* Badge */}

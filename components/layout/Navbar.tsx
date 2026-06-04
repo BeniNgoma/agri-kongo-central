@@ -12,7 +12,7 @@ const navLinks = [
     href: "#a-propos",
     submenu: [
       { label: "À Propos du Programme", href: "#a-propos", desc: "Notre mission et vision pour le Kongo Central" },
-      { label: "Notre Équipe", href: "#equipe", desc: "L'équipe dédiée de CDI-Bwamanda" },
+      { label: "Notre Équipe", href: "#equipe", desc: "L'équipe dédiée de Nduenga Agro Industries" },
       { label: "Notre Approche", href: "#programme", desc: "5 composantes pour une transformation durable" },
     ],
   },
@@ -35,7 +35,7 @@ const navLinks = [
       { label: "Résultats Attendus", href: "#resultats", desc: "Chiffres clés et indicateurs de performance" },
       { label: "Impacts du Programme", href: "#impacts", desc: "Effets durables sur les communautés rurales" },
       { label: "Galerie Photos", href: "#galerie", desc: "Terrain à Banzangongo, Boko et Mbanza-Ngungu" },
-      { label: "Nous Contacter", href: "#contact", desc: "Rejoindre ou partenariat avec CDI-Bwamanda" },
+      { label: "Nous Contacter", href: "#contact", desc: "Rejoindre ou partenariat avec Nduenga Agro Industries" },
     ],
   },
 ];
@@ -61,48 +61,47 @@ export default function Navbar() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-green-deep/90 backdrop-blur-xl shadow-2xl"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "shadow-lg" : ""
+      } bg-white border-b border-gray-100`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
+
+          {/* Logo — entier, sans fond, sans rognage */}
           <button
             onClick={() => handleNavClick("#hero")}
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-3 group flex-shrink-0"
           >
             <Image
               src="/logo.png"
               alt="Nduenga Agro Industries"
-              width={52}
-              height={52}
-              className="rounded-full object-cover drop-shadow-lg"
+              width={72}
+              height={72}
+              className="object-contain drop-shadow-sm"
               priority
             />
-            <div className="text-left hidden sm:block">
-              <div className="font-playfair font-bold text-white text-sm leading-tight">
+            <div className="text-left hidden md:block">
+              <div className="font-playfair font-bold text-green-deep text-base leading-tight">
                 Nduenga Agro Industries
               </div>
-              <div className="text-gold-light text-xs leading-tight">
+              <div className="text-gold text-xs leading-tight font-medium">
                 Produire au Congo, Transformer au Congo
               </div>
             </div>
           </button>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5">
             {navLinks.map((link, idx) =>
               !link.submenu ? (
                 <button
                   key={idx}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-white/90 hover:text-gold-light px-4 py-2 text-sm font-medium transition-colors"
+                  className="text-gray-700 hover:text-green-mid px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-bright/8"
                 >
                   {link.label}
                 </button>
@@ -113,28 +112,26 @@ export default function Navbar() {
                   onMouseEnter={() => setOpenDropdown(idx)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <button className="flex items-center gap-1 text-white/90 hover:text-gold-light px-4 py-2 text-sm font-medium transition-colors">
+                  <button className="flex items-center gap-1 text-gray-700 hover:text-green-mid px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-bright/8">
                     {link.label}
-                    <ChevronDown className="w-3.5 h-3.5" />
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${openDropdown === idx ? "rotate-180" : ""}`} />
                   </button>
                   {openDropdown === idx && (
                     <motion.div
-                      initial={{ opacity: 0, y: 8 }}
+                      initial={{ opacity: 0, y: 6 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 8 }}
-                      className="absolute top-full left-0 w-72 mt-1 rounded-2xl overflow-hidden shadow-2xl border border-white/10"
-                      style={{ backdropFilter: "blur(24px)", background: "rgba(15,36,25,0.95)" }}
+                      className="absolute top-full left-0 w-72 mt-1 rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white"
                     >
                       {link.submenu.map((sub, sidx) => (
                         <button
                           key={sidx}
                           onClick={() => handleNavClick(sub.href)}
-                          className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors group border-b border-white/5 last:border-0"
+                          className="w-full text-left px-5 py-3 hover:bg-light-bg transition-colors border-b border-gray-50 last:border-0 group"
                         >
-                          <div className="text-white text-sm font-medium group-hover:text-gold-light transition-colors">
+                          <div className="text-gray-800 text-sm font-medium group-hover:text-green-mid transition-colors">
                             {sub.label}
                           </div>
-                          <div className="text-white/50 text-xs mt-0.5">{sub.desc}</div>
+                          <div className="text-gray-400 text-xs mt-0.5">{sub.desc}</div>
                         </button>
                       ))}
                     </motion.div>
@@ -148,7 +145,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <button
               onClick={() => handleNavClick("#contact")}
-              className="px-5 py-2 rounded-xl text-sm font-semibold bg-gradient-to-r from-green-bright to-gold text-white hover:opacity-90 transition-opacity shadow-lg"
+              className="px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-green-mid to-green-bright text-white hover:opacity-90 transition-opacity shadow-md"
             >
               Nous Rejoindre
             </button>
@@ -157,7 +154,7 @@ export default function Navbar() {
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden text-white p-2"
+            className="lg:hidden text-gray-700 p-2 rounded-lg hover:bg-gray-100"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -170,7 +167,7 @@ export default function Navbar() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="lg:hidden bg-green-deep/98 border-t border-white/10 max-h-screen overflow-y-auto"
+          className="lg:hidden bg-white border-t border-gray-100 max-h-screen overflow-y-auto shadow-lg"
         >
           <div className="px-4 py-4 space-y-1">
             {navLinks.map((link, idx) => (
@@ -183,7 +180,7 @@ export default function Navbar() {
                       handleNavClick(link.href);
                     }
                   }}
-                  className="w-full flex items-center justify-between text-white/90 hover:text-gold-light px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/5 transition-colors"
+                  className="w-full flex items-center justify-between text-gray-700 hover:text-green-mid px-4 py-3 text-sm font-medium rounded-xl hover:bg-light-bg transition-colors"
                 >
                   {link.label}
                   {link.submenu && (
@@ -200,7 +197,7 @@ export default function Navbar() {
                       <button
                         key={sidx}
                         onClick={() => handleNavClick(sub.href)}
-                        className="w-full text-left text-white/70 hover:text-gold-light px-4 py-2.5 text-sm rounded-lg hover:bg-white/5 transition-colors"
+                        className="w-full text-left text-gray-500 hover:text-green-mid px-4 py-2.5 text-sm rounded-lg hover:bg-light-bg transition-colors"
                       >
                         {sub.label}
                       </button>
@@ -211,7 +208,7 @@ export default function Navbar() {
             ))}
             <button
               onClick={() => handleNavClick("#contact")}
-              className="w-full mt-2 px-5 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-green-bright to-gold text-white"
+              className="w-full mt-2 px-5 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-green-mid to-green-bright text-white shadow-md"
             >
               Nous Rejoindre
             </button>

@@ -24,7 +24,7 @@ const navLinks = [
       { label: "Production Agricole (Maïs & Soja)", href: "#activites", desc: "Boko, zone de production principale" },
       { label: "Transformation (Huile & Tourteaux)", href: "#activites", desc: "Usine de transformation du soja" },
       { label: "Infrastructures de Stockage", href: "#activites", desc: "Silos de 250 tonnes à Mbanza-Ngungu" },
-      { label: "Routes de Desserte", href: "#activites", desc: "290 km réhabilités vers Kinshasa" },
+      { label: "Extension des Terres", href: "#activites", desc: "10 ha cultivés à Boko, zone de production" },
       { label: "Financement & Coopératives", href: "#activites", desc: "AVEC et accès au crédit agricole" },
     ],
   },

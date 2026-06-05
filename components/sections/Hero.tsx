@@ -5,10 +5,10 @@ import { motion } from "motion/react";
 import { ArrowDown, Users, Truck, TrendingUp, Globe, MapPin } from "lucide-react";
 
 const stats = [
-  { value: "2 000", label: "Producteurs agricoles", icon: Users },
-  { value: "290 km", label: "Routes réhabilitées", icon: Truck },
+  { value: "500", label: "Producteurs agricoles", icon: Users },
+  { value: "10 ha", label: "Hectares cultivés", icon: Truck },
   { value: "+5%", label: "Hausse des revenus", icon: TrendingUp },
-  { value: "2M+", label: "Bénéficiaires indirects", icon: Globe },
+  { value: "200k+", label: "Bénéficiaires indirects", icon: Globe },
 ];
 
 const products = [
@@ -16,7 +16,7 @@ const products = [
     name: "Maïs",
     emoji: "🌽",
     photo: "https://images.unsplash.com/photo-1634467524884-897d0af5e104?w=400&q=80",
-    label: "6 000 t",
+    label: "3 000 t",
   },
   {
     name: "Arachide",
@@ -28,7 +28,7 @@ const products = [
     name: "Soja",
     emoji: "🌱",
     photo: "https://images.unsplash.com/photo-1639843606783-b2f9c50a7468?w=400&q=80",
-    label: "4 000 t",
+    label: "2 000 t",
   },
   {
     name: "Manioc",
@@ -197,10 +197,10 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3 sm:gap-5 flex-wrap">
             {[
-              { emoji: "🌽", label: "Maïs · 6 000 t" },
+              { emoji: "🌽", label: "Maïs · 3 000 t" },
               { emoji: "🥜", label: "Arachide" },
-              { emoji: "🌱", label: "Soja · 4 000 t" },
-              { emoji: "🚛", label: "5 Camions" },
+              { emoji: "🌱", label: "Soja · 2 000 t" },
+              { emoji: "🚛", label: "2 Camions" },
               { emoji: "🏗️", label: "2 Silos" },
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-1.5 text-white/60 text-xs">

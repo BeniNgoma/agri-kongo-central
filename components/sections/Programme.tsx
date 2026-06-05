@@ -29,7 +29,7 @@ const composantes = [
     num: "04",
     icon: GraduationCap,
     title: "Renforcement des Capacités & Inclusion Sociale",
-    desc: "Formation des producteurs de Boko, inclusion des femmes et des jeunes, et appui aux 80 organisations paysannes du territoire.",
+    desc: "Formation des producteurs de Boko, inclusion des femmes et des jeunes, et appui aux 20 organisations paysannes du territoire.",
     color: "#c9a84c",
   },
   {

@@ -98,7 +98,7 @@ export const activities = [
     title: "Formation aux Bonnes Pratiques Agricoles",
     icon: "GraduationCap",
     description:
-      "Renforcement des capacités des producteurs de Boko sur les techniques agricoles modernes, la gestion des cultures et la protection de l'environnement. Plus de 2 000 agriculteurs formés aux méthodes durables.",
+      "Renforcement des capacités des producteurs de Boko sur les techniques agricoles modernes, la gestion des cultures et la protection de l'environnement. Plus de 500 agriculteurs formés aux méthodes durables.",
     points: [
       "Techniques culturales adaptées au Kongo Central",
       "Gestion durable des sols et de l'eau",
@@ -126,10 +126,10 @@ export const activities = [
     title: "Organisation en Coopératives",
     icon: "Users",
     description:
-      "Structuration des producteurs de Boko en 80 coopératives solides pour faciliter la mutualisation des ressources, la production collective et la commercialisation vers Kinshasa.",
+      "Structuration des producteurs de Boko en 20 coopératives solides pour faciliter la mutualisation des ressources, la production collective et la commercialisation vers Kinshasa.",
     points: [
-      "80 organisations paysannes structurées",
-      "20 associations villageoises d'épargne (AVEC)",
+      "20 organisations paysannes structurées",
+      "10 associations villageoises d'épargne (AVEC)",
       "Gouvernance coopérative renforcée",
       "Accès collectif aux marchés de Kinshasa",
     ],
@@ -142,7 +142,7 @@ export const activities = [
     description:
       "Promotion des Associations Villageoises d'Épargne et de Crédit pour renforcer l'accès au financement et soutenir les initiatives des producteurs de Boko.",
     points: [
-      "20 AVEC opérationnelles dans les villages",
+      "10 AVEC opérationnelles dans les villages",
       "Accès facilité aux micro-crédits agricoles",
       "Formation en gestion financière",
       "Autonomisation financière des femmes rurales",
@@ -151,15 +151,15 @@ export const activities = [
   },
   {
     id: "05",
-    title: "Mécanisation et Routes Agricoles",
+    title: "Mécanisation et Extension des Terres",
     icon: "Truck",
     description:
-      "Mécanisation des travaux agricoles et réhabilitation des routes de desserte reliant Boko et Mbanza-Ngungu pour faciliter le transport des produits vers Kinshasa via la RN1.",
+      "Mécanisation des travaux agricoles et mise en valeur de 10 hectares de terres cultivables à Boko pour augmenter la capacité de production et faciliter le transport vers Kinshasa.",
     points: [
-      "290 km de routes de desserte réhabilitées",
-      "5 camions de 25 tonnes acquis",
-      "290 brigadiers et cantonniers employés",
-      "Désenclavement de Boko vers Mbanza-Ngungu",
+      "10 hectares de terres mis en culture",
+      "2 camions de 25 tonnes acquis",
+      "50 ouvriers et techniciens agricoles employés",
+      "Accès aux marchés de Kinshasa via la RN1",
     ],
     photo: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
   },
@@ -200,9 +200,9 @@ export const impacts = [
   },
   {
     icon: "MapPin",
-    title: "Désenclavement Boko & Kongo Central",
+    title: "Extension des Terres à Boko",
     description:
-      "Réhabilitation de 290 km de routes de desserte agricole reliant Boko à Mbanza-Ngungu et à la RN1 vers Kinshasa, facilitant l'accès aux marchés.",
+      "Mise en valeur de 10 hectares de terres cultivables à Boko, augmentant la capacité productive locale et facilitant l'approvisionnement de Kinshasa via la RN1.",
     // piste rurale africaine avec verdure, Madagascar (Shane Ryan Herilalaina)
     photo: "https://images.unsplash.com/photo-1776090416729-20bedcc1a207?w=600&q=80",
     color: "green",
@@ -227,9 +227,9 @@ export const impacts = [
   },
   {
     icon: "Globe",
-    title: "2M+ Bénéficiaires Indirects",
+    title: "200 000+ Bénéficiaires Indirects",
     description:
-      "À long terme, plus de 2 millions de personnes bénéficieront des retombées économiques et alimentaires, y compris les consommateurs de Kinshasa approvisionnés via la RN1.",
+      "À terme, plus de 200 000 personnes bénéficieront des retombées économiques et alimentaires, y compris les consommateurs de Kinshasa approvisionnés via la RN1.",
     // rassemblement communautaire, Kargi, Kenya (Ian Macharia)
     photo: "https://images.unsplash.com/photo-1515658323406-25d61c141a6e?w=600&q=80",
     color: "gold",
@@ -237,29 +237,29 @@ export const impacts = [
 ];
 
 export const stats = [
-  { value: 2000, label: "Producteurs agricoles", suffix: "", icon: "Users" },
-  { value: 290, label: "km Routes réhabilitées", suffix: " km", icon: "Truck" },
+  { value: 500, label: "Producteurs agricoles", suffix: "", icon: "Users" },
+  { value: 10, label: "Hectares cultivés", suffix: " ha", icon: "Leaf" },
   { value: 5, label: "Hausse des revenus", suffix: "%+", icon: "TrendingUp" },
-  { value: 2, label: "Bénéficiaires indirects", suffix: "M+", icon: "Globe" },
+  { value: 200, label: "Bénéficiaires indirects", suffix: "k+", icon: "Globe" },
 ];
 
 export const resultCounters = [
-  { value: 6000, label: "tonnes de maïs", suffix: "t", icon: "Wheat" },
-  { value: 4000, label: "tonnes de soja", suffix: "t", icon: "Sprout" },
-  { value: 5, label: "camions 25t", suffix: "", icon: "Truck" },
+  { value: 3000, label: "tonnes de maïs", suffix: "t", icon: "Wheat" },
+  { value: 2000, label: "tonnes de soja", suffix: "t", icon: "Sprout" },
+  { value: 2, label: "camions 25t", suffix: "", icon: "Truck" },
   { value: 2, label: "silos de stockage", suffix: "", icon: "Building2" },
-  { value: 290, label: "km de routes", suffix: " km", icon: "Route" },
+  { value: 10, label: "hectares cultivés", suffix: " ha", icon: "Leaf" },
   { value: 5, label: "hausse revenus", suffix: "%+", icon: "TrendingUp" },
 ];
 
 export const productionData = [
-  { culture: "Maïs", production: 6000, objectif: 6000, couleur: "#3a9e68" },
-  { culture: "Soja", production: 4000, objectif: 4000, couleur: "#c9a84c" },
+  { culture: "Maïs", production: 3000, objectif: 3000, couleur: "#3a9e68" },
+  { culture: "Soja", production: 2000, objectif: 2000, couleur: "#c9a84c" },
 ];
 
 export const beneficiairesData = [
-  { name: "Producteurs agricoles", value: 2000, fill: "#3a9e68" },
-  { name: "Organisations paysannes", value: 80, fill: "#c9a84c" },
-  { name: "AVEC", value: 20, fill: "#1a5c35" },
-  { name: "Brigadiers routes", value: 290, fill: "#e8c97a" },
+  { name: "Producteurs agricoles", value: 500, fill: "#3a9e68" },
+  { name: "Organisations paysannes", value: 20, fill: "#c9a84c" },
+  { name: "AVEC", value: 10, fill: "#1a5c35" },
+  { name: "Techniciens agricoles", value: 50, fill: "#e8c97a" },
 ];

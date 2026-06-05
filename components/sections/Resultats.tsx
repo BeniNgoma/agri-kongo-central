@@ -7,27 +7,27 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   PieChart, Pie, Cell,
 } from "recharts";
-import { Wheat, Sprout, Truck, Building2, Route, TrendingUp } from "lucide-react";
+import { Wheat, Sprout, Truck, Building2, Leaf, TrendingUp } from "lucide-react";
 
 const counters = [
-  { value: 6000, label: "tonnes de maïs", suffix: " t", icon: Wheat, color: "#3a9e68" },
-  { value: 4000, label: "tonnes de soja", suffix: " t", icon: Sprout, color: "#c9a84c" },
-  { value: 5, label: "camions 25t", suffix: "", icon: Truck, color: "#3a9e68" },
+  { value: 3000, label: "tonnes de maïs", suffix: " t", icon: Wheat, color: "#3a9e68" },
+  { value: 2000, label: "tonnes de soja", suffix: " t", icon: Sprout, color: "#c9a84c" },
+  { value: 2, label: "camions 25t", suffix: "", icon: Truck, color: "#3a9e68" },
   { value: 2, label: "silos de stockage", suffix: "", icon: Building2, color: "#c9a84c" },
-  { value: 290, label: "km de routes", suffix: " km", icon: Route, color: "#3a9e68" },
+  { value: 10, label: "hectares cultivés", suffix: " ha", icon: Leaf, color: "#3a9e68" },
   { value: 5, label: "hausse revenus", suffix: "%+", icon: TrendingUp, color: "#c9a84c" },
 ];
 
 const productionData = [
-  { culture: "Maïs", objectif: 6000 },
-  { culture: "Soja", objectif: 4000 },
+  { culture: "Maïs", objectif: 3000 },
+  { culture: "Soja", objectif: 2000 },
 ];
 
 const benef = [
-  { name: "Producteurs", value: 2000, fill: "#3a9e68" },
-  { name: "Organisations", value: 80, fill: "#c9a84c" },
-  { name: "AVEC", value: 20, fill: "#1a5c35" },
-  { name: "Brigadiers", value: 290, fill: "#e8c97a" },
+  { name: "Producteurs", value: 500, fill: "#3a9e68" },
+  { name: "Organisations", value: 20, fill: "#c9a84c" },
+  { name: "AVEC", value: 10, fill: "#1a5c35" },
+  { name: "Techniciens", value: 50, fill: "#e8c97a" },
 ];
 
 const ease = [0.22, 1, 0.36, 1] as const;

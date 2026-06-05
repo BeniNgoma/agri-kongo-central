@@ -18,6 +18,33 @@ const crops = [
   { emoji: "🌿", name: "Manioc", desc: "Sécurité alimentaire" },
 ];
 
+const products = [
+  {
+    name: "Maïs",
+    emoji: "🌽",
+    photo: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=400&q=80",
+    label: "6 000 t",
+  },
+  {
+    name: "Arachide",
+    emoji: "🥜",
+    photo: "https://images.unsplash.com/photo-1508019024724-f2d66b279e42?w=400&q=80",
+    label: "Production locale",
+  },
+  {
+    name: "Soja",
+    emoji: "🌱",
+    photo: "https://images.unsplash.com/photo-1623201536895-73f16f682b69?w=400&q=80",
+    label: "4 000 t",
+  },
+  {
+    name: "Manioc",
+    emoji: "🌿",
+    photo: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=80",
+    label: "Sécurité alimentaire",
+  },
+];
+
 export default function Hero() {
   const handleScroll = (href: string) => {
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
@@ -26,15 +53,15 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden bg-green-deep">
 
-      {/* ── Background image avec overlay diagonal ── */}
+      {/* ── Background image africain — champs du Kongo Central ── */}
       <Image
-        src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1920&q=80"
-        alt="Champs agricoles Kongo Central"
+        src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?w=1920&q=80"
+        alt="Agriculture africaine Kongo Central"
         fill
         className="object-cover"
         priority
       />
-      {/* Overlay gradient diagonal — gauche foncé, droite plus transparent */}
+      {/* Overlay gradient diagonal */}
       <div className="absolute inset-0"
         style={{
           background: "linear-gradient(110deg, rgba(15,36,25,0.92) 0%, rgba(15,36,25,0.78) 45%, rgba(15,36,25,0.45) 100%)"
@@ -132,7 +159,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* ── Colonne droite (2/5) — Stats cards ── */}
+          {/* ── Colonne droite (2/5) — Stats + Photos produits ── */}
           <div className="lg:col-span-2 grid grid-cols-2 gap-3">
             {stats.map((stat, i) => (
               <motion.div
@@ -158,30 +185,36 @@ export default function Hero() {
               </motion.div>
             ))}
 
-            {/* Card image maïs/arachide */}
+            {/* Grille 4 produits africains */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.6 }}
-              className="col-span-2 rounded-2xl overflow-hidden relative h-28"
-              style={{ border: "1px solid rgba(255,255,255,0.12)" }}
+              className="col-span-2 grid grid-cols-4 rounded-2xl overflow-hidden"
+              style={{ border: "1px solid rgba(255,255,255,0.12)", height: "112px" }}
             >
-              <Image
-                src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&q=80"
-                alt="Maïs et arachide Kongo Central"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 flex items-end p-3"
-                style={{ background: "linear-gradient(to top, rgba(15,36,25,0.85), transparent)" }}>
-                <div className="text-xs text-white/80 font-medium flex items-center gap-2">
-                  <span>🌽 Maïs</span>
-                  <span className="text-gold/50">·</span>
-                  <span>🥜 Arachide</span>
-                  <span className="text-gold/50">·</span>
-                  <span>Kongo Central</span>
+              {products.map((p, i) => (
+                <div key={i} className="relative overflow-hidden group">
+                  <Image
+                    src={p.photo}
+                    alt={p.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div
+                    className="absolute inset-0 flex flex-col items-center justify-end p-2"
+                    style={{ background: "linear-gradient(to top, rgba(15,36,25,0.92) 0%, rgba(15,36,25,0.3) 60%, transparent 100%)" }}
+                  >
+                    <span className="text-lg leading-none mb-0.5">{p.emoji}</span>
+                    <span className="text-white text-[10px] font-semibold leading-tight text-center">{p.name}</span>
+                    <span className="text-gold/80 text-[9px] leading-tight text-center">{p.label}</span>
+                  </div>
+                  {/* Séparateur vertical */}
+                  {i < 3 && (
+                    <div className="absolute right-0 top-2 bottom-2 w-px bg-white/15" />
+                  )}
                 </div>
-              </div>
+              ))}
             </motion.div>
           </div>
         </div>

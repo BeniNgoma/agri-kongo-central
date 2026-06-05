@@ -2,50 +2,50 @@ export const teamMembers = [
   {
     name: "Jean-Pierre Mabunda",
     role: "Coordinateur du Programme",
+    company: "CDI-Bwamanda",
     bio: "Expert en développement agricole avec 15 ans d'expérience en RDC.",
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
   },
   {
     name: "Marie-Claire Nsimba",
     role: "Chef de Projet Infrastructures",
+    company: "Nduenga Agro Industries",
     bio: "Ingénieure en génie civil spécialisée dans les infrastructures rurales.",
-    photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
   },
   {
     name: "Pascal Lukusa",
     role: "Responsable des Producteurs",
+    company: "CDI-Bwamanda",
     bio: "Agronome spécialisé dans la culture du maïs et du soja au Kongo Central.",
-    photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80",
   },
   {
     name: "Angèle Mvuemba",
     role: "Chef de Projet Agricole",
+    company: "FIDA / IFAD",
     bio: "Experte en chaînes de valeur agricoles et développement rural inclusif.",
-    photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
   },
   {
     name: "Robert Kimbala",
     role: "Suivi & Évaluation",
+    company: "Gouvernement Provincial",
     bio: "Spécialiste en monitoring & évaluation des projets de développement.",
-    photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
   },
   {
     name: "Dr. Félicité Banzuzi",
     role: "Agronome Senior",
+    company: "Université Kongo",
     bio: "Docteure en agronomie, coordinatrice des formations aux bonnes pratiques.",
-    photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
   },
   {
     name: "Honoré Mayala",
     role: "Responsable Financier",
+    company: "CDI-Bwamanda",
     bio: "Expert-comptable certifié, garant de la transparence financière du programme.",
-    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
   },
   {
     name: "Cécile Lufuta",
     role: "Chargée Inclusion & Genre",
+    company: "ONG CAFED",
     bio: "Militante pour l'inclusion des femmes et des jeunes dans l'agriculture.",
-    photo: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80",
   },
 ];
 

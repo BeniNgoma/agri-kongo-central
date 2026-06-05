@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion, useInView, useMotionValue, useTransform, animate } from "motion/react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
-  PieChart, Pie, Cell,
 } from "recharts";
 import { Wheat, Sprout, Truck, Building2, Leaf, TrendingUp } from "lucide-react";
 
@@ -21,13 +20,6 @@ const counters = [
 const productionData = [
   { culture: "Maïs", objectif: 3000 },
   { culture: "Soja", objectif: 2000 },
-];
-
-const benef = [
-  { name: "Producteurs", value: 500, fill: "#3a9e68" },
-  { name: "Organisations", value: 20, fill: "#c9a84c" },
-  { name: "AVEC", value: 10, fill: "#1a5c35" },
-  { name: "Techniciens", value: 50, fill: "#e8c97a" },
 ];
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -103,57 +95,30 @@ export default function Resultats() {
           ))}
         </div>
 
-        {/* Charts */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, ease }}
-            className="bg-white rounded-3xl p-5 sm:p-6 shadow-md border border-gray-100"
-          >
-            <h3 className="font-playfair font-semibold text-green-deep mb-4 text-base sm:text-lg">
-              Production prévue (tonnes)
-            </h3>
-            <ResponsiveContainer width="100%" height={240}>
-              <BarChart data={productionData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                <XAxis dataKey="culture" tick={{ fill: "#6b7280", fontSize: 12 }} />
-                <YAxis tick={{ fill: "#6b7280", fontSize: 12 }} />
-                <Tooltip
-                  contentStyle={{ background: "rgba(15,36,25,0.9)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", color: "#fff" }}
-                />
-                <Legend />
-                <Bar dataKey="objectif" name="Objectif (t)" fill="#3a9e68" radius={[6, 6, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, ease }}
-            className="bg-white rounded-3xl p-5 sm:p-6 shadow-md border border-gray-100"
-          >
-            <h3 className="font-playfair font-semibold text-green-deep mb-4 text-base sm:text-lg">
-              Répartition des bénéficiaires
-            </h3>
-            <ResponsiveContainer width="100%" height={240}>
-              <PieChart>
-                <Pie data={benef} cx="50%" cy="50%" outerRadius={90} dataKey="value" label={({ name, value }) => `${name}: ${value}`}>
-                  {benef.map((entry, index) => (
-                    <Cell key={index} fill={entry.fill} />
-                  ))}
-                </Pie>
-                <Tooltip
-                  contentStyle={{ background: "rgba(15,36,25,0.9)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", color: "#fff" }}
-                />
-                <Legend />
-              </PieChart>
-            </ResponsiveContainer>
-          </motion.div>
-        </div>
+        {/* Chart */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease }}
+          className="bg-white rounded-3xl p-5 sm:p-6 shadow-md border border-gray-100 max-w-2xl mx-auto w-full"
+        >
+          <h3 className="font-playfair font-semibold text-green-deep mb-4 text-base sm:text-lg">
+            Production prévue (tonnes)
+          </h3>
+          <ResponsiveContainer width="100%" height={240}>
+            <BarChart data={productionData}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+              <XAxis dataKey="culture" tick={{ fill: "#6b7280", fontSize: 12 }} />
+              <YAxis tick={{ fill: "#6b7280", fontSize: 12 }} />
+              <Tooltip
+                contentStyle={{ background: "rgba(15,36,25,0.9)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", color: "#fff" }}
+              />
+              <Legend />
+              <Bar dataKey="objectif" name="Objectif (t)" fill="#3a9e68" radius={[6, 6, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </motion.div>
       </div>
     </section>
   );

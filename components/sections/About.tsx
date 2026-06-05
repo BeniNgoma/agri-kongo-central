@@ -34,9 +34,9 @@ export default function About() {
               <span className="text-gradient">Kongo Central</span>
             </h2>
             <p className="text-gray-600 text-base lg:text-lg leading-relaxed mb-8">
-              Le programme est porté par le{" "}
-              <strong className="text-green-mid">Centre de Développement Intégrale-Bwamanda (CDI-Bwamanda)</strong>{" "}
-              en partenariat avec le Ministère de l'Économie Nationale. Il vise à transformer durablement
+              Le programme est porté par{" "}
+              <strong className="text-green-mid">Nduenga Agro Industries</strong>.{" "}
+              Il vise à transformer durablement
               l'agriculture dans la province du Kongo Central, particulièrement dans la localité de{" "}
               <strong className="text-green-deep">Boko</strong>, située dans le territoire de{" "}
               <strong className="text-green-deep">Mbanza-Ngungu</strong> — zone à fort potentiel

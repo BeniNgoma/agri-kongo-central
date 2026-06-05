@@ -16,15 +16,15 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Programme de Relance Agricole — Kongo Central | CDI-Bwamanda",
+  title: "Programme de Relance Agricole — Kongo Central | Nduenga Agro Industries",
   description:
-    "Programme intégré de transformation agricole à Boko, territoire de Mbanza-Ngungu, province du Kongo Central, RD Congo. Porté par le CDI-Bwamanda.",
+    "Programme intégré de transformation agricole à Boko, territoire de Mbanza-Ngungu, province du Kongo Central, RD Congo. Porté par le Nduenga Agro Industries.",
   keywords: [
     "agriculture Congo",
     "Kongo Central",
     "Boko",
     "Mbanza-Ngungu",
-    "CDI-Bwamanda",
+    "Nduenga Agro Industries",
     "relance agricole",
     "maïs soja",
     "RD Congo",

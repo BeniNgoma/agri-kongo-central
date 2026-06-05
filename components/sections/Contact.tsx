@@ -42,7 +42,7 @@ export default function Contact() {
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-sm sm:text-base">
             Producteur de Boko, partenaire, bailleur ou journaliste — contactez
-            l'équipe CDI-Bwamanda.
+            l'équipe Nduenga Agro Industries.
           </p>
         </motion.div>
 
@@ -70,7 +70,7 @@ export default function Contact() {
                     Message envoyé !
                   </h3>
                   <p className="text-gray-500 text-sm">
-                    L'équipe CDI-Bwamanda vous répondra dans les 48 heures ouvrables.
+                    L'équipe Nduenga Agro Industries vous répondra dans les 48 heures ouvrables.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
@@ -141,7 +141,7 @@ export default function Contact() {
                         value={form.organisation}
                         onChange={handleChange}
                         className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-green-bright transition-colors"
-                        placeholder="CDI-Bwamanda"
+                        placeholder="Nduenga Agro Industries"
                       />
                     </div>
                   </div>
@@ -195,7 +195,7 @@ export default function Contact() {
           >
             <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-md border border-gray-100 space-y-4 sm:space-y-5">
               {[
-                { icon: MapPin, label: "Siège", value: "CDI-Bwamanda, Territoire de Mbanza-Ngungu, Province du Kongo Central, RD Congo" },
+                { icon: MapPin, label: "Siège", value: "Nduenga Agro Industries, Territoire de Mbanza-Ngungu, Province du Kongo Central, RD Congo" },
                 { icon: MapPin, label: "Zone d'intervention", value: "Boko — Territoire de Mbanza-Ngungu, Kongo Central" },
                 { icon: Phone, label: "Téléphone", value: "+243 XXX XXX XXX" },
                 { icon: Mail, label: "Email", value: "contact@cdibwamanda.org" },

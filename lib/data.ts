@@ -2,7 +2,7 @@ export const teamMembers = [
   {
     name: "Jean-Pierre Mabunda",
     role: "Coordinateur du Programme",
-    company: "CDI-Bwamanda",
+    company: "Nduenga Agro Industries",
     bio: "Expert en développement agricole avec 15 ans d'expérience en RDC.",
   },
   {
@@ -14,7 +14,7 @@ export const teamMembers = [
   {
     name: "Pascal Lukusa",
     role: "Responsable des Producteurs",
-    company: "CDI-Bwamanda",
+    company: "Nduenga Agro Industries",
     bio: "Agronome spécialisé dans la culture du maïs et du soja au Kongo Central.",
   },
   {
@@ -38,7 +38,7 @@ export const teamMembers = [
   {
     name: "Honoré Mayala",
     role: "Responsable Financier",
-    company: "CDI-Bwamanda",
+    company: "Nduenga Agro Industries",
     bio: "Expert-comptable certifié, garant de la transparence financière du programme.",
   },
   {
@@ -87,7 +87,7 @@ export const galleryImages = [
   },
   {
     src: "https://images.unsplash.com/photo-1603796846097-bee99e4a601f?w=800&q=80",
-    alt: "Coopérative agricole CDI-Bwamanda",
+    alt: "Coopérative agricole Nduenga Agro Industries",
     category: "Formation",
   },
 ];

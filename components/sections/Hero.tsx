@@ -15,25 +15,25 @@ const products = [
   {
     name: "Maïs",
     emoji: "🌽",
-    photo: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&q=80",
+    photo: "https://images.unsplash.com/photo-1634467524884-897d0af5e104?w=400&q=80",
     label: "6 000 t",
   },
   {
     name: "Arachide",
     emoji: "🥜",
-    photo: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400&q=80",
+    photo: "https://images.unsplash.com/photo-1575399872095-9363bf262e64?w=400&q=80",
     label: "Production locale",
   },
   {
     name: "Soja",
     emoji: "🌱",
-    photo: "https://images.unsplash.com/photo-1614961909622-4b8451a8de31?w=400&q=80",
+    photo: "https://images.unsplash.com/photo-1639843606783-b2f9c50a7468?w=400&q=80",
     label: "4 000 t",
   },
   {
     name: "Manioc",
     emoji: "🌿",
-    photo: "https://images.unsplash.com/photo-1551754177-0e0d5c2a3c96?w=400&q=80",
+    photo: "https://images.unsplash.com/photo-1764143914716-3524db64940e?w=400&q=80",
     label: "Sécurité alim.",
   },
 ];

@@ -21,7 +21,7 @@ const navLinks = [
     href: "#programme",
     submenu: [
       { label: "Nos 5 Composantes", href: "#programme", desc: "Le cadre stratégique du programme" },
-      { label: "Production Agricole (Maïs & Soja)", href: "#activites", desc: "Banzangongo et Boko, zones de production" },
+      { label: "Production Agricole (Maïs & Soja)", href: "#activites", desc: "Boko, zone de production principale" },
       { label: "Transformation (Huile & Tourteaux)", href: "#activites", desc: "Usine de transformation du soja" },
       { label: "Infrastructures de Stockage", href: "#activites", desc: "Silos de 250 tonnes à Mbanza-Ngungu" },
       { label: "Routes de Desserte", href: "#activites", desc: "290 km réhabilités vers Kinshasa" },
@@ -34,7 +34,7 @@ const navLinks = [
     submenu: [
       { label: "Résultats Attendus", href: "#resultats", desc: "Chiffres clés et indicateurs de performance" },
       { label: "Impacts du Programme", href: "#impacts", desc: "Effets durables sur les communautés rurales" },
-      { label: "Galerie Photos", href: "#galerie", desc: "Terrain à Banzangongo, Boko et Mbanza-Ngungu" },
+      { label: "Galerie Photos", href: "#galerie", desc: "Terrain à Boko et Mbanza-Ngungu" },
       { label: "Nous Contacter", href: "#contact", desc: "Rejoindre ou partenariat avec Nduenga Agro Industries" },
     ],
   },

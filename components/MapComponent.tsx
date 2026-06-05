@@ -25,16 +25,16 @@ export default function MapComponent() {
       />
       <Marker position={[-5.28, 14.72]} icon={createIcon("#3a9e68")}>
         <Popup>
-          <strong>Banzangongo</strong>
+          <strong>Zone Agricole Principale</strong>
           <br />
-          Zone de production principale (maïs &amp; soja)
+          Production maïs &amp; soja
         </Popup>
       </Marker>
       <Marker position={[-5.30, 14.65]} icon={createIcon("#c9a84c")}>
         <Popup>
           <strong>Boko</strong>
           <br />
-          Axe de commercialisation et desserte agricole
+          Zone de production &amp; desserte agricole
         </Popup>
       </Marker>
       <Marker position={[-5.25, 14.8667]} icon={createIcon("#ffffff")}>

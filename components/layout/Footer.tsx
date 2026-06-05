@@ -47,7 +47,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-white/60 text-sm leading-relaxed mb-5">
-              Transformer l'agriculture à <strong className="text-white/80">Banzangongo</strong> et{" "}
+              Transformer l'agriculture à{" "}
               <strong className="text-white/80">Boko</strong>, territoire de Mbanza-Ngungu, province du
               Kongo Central, RD Congo.
             </p>
@@ -147,7 +147,7 @@ export default function Footer() {
           </span>
           <div className="flex items-center gap-1 text-white/30">
             <Image src="/logo.png" alt="logo" width={16} height={16} className="rounded-full opacity-60" />
-            <span>Banzangongo & Boko, Territoire de Mbanza-Ngungu</span>
+            <span>Boko, Territoire de Mbanza-Ngungu</span>
           </div>
         </div>
       </div>

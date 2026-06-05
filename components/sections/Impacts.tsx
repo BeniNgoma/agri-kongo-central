@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView } from "motion/react";
+import { motion } from "motion/react";
 import { ShieldCheck, Briefcase, MapPin, Droplets, TrendingUp, Globe } from "lucide-react";
 import { impacts } from "@/lib/data";
 
@@ -10,58 +9,49 @@ const iconMap: Record<string, React.ElementType> = {
   ShieldCheck, Briefcase, MapPin, Droplets, TrendingUp, Globe,
 };
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
-};
-const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Impacts() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-
   return (
-    <section id="impacts" className="bg-light-bg py-24">
+    <section id="impacts" className="bg-light-bg py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease }}
+          className="text-center mb-12 sm:mb-16"
+        >
           <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-green-bright/10 text-green-mid mb-4 tracking-wider uppercase">
             Impacts Attendus
           </span>
-          <h2 className="font-playfair text-4xl lg:text-5xl font-bold text-green-deep mb-4">
+          <h2 className="font-playfair text-3xl sm:text-4xl lg:text-5xl font-bold text-green-deep mb-4">
             Des Impacts <span className="text-gradient">Durables</span>
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <p className="text-gray-500 max-w-2xl mx-auto text-sm sm:text-base">
             Le programme générera des impacts sociaux, économiques et environnementaux durables au
-            bénéfice des communautés de Banzangongo, Boko et du Kongo Central.
+            bénéfice des communautés de Boko et du Kongo Central.
           </p>
-        </div>
+        </motion.div>
 
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {impacts.map((impact, i) => {
             const Icon = iconMap[impact.icon] ?? ShieldCheck;
             return (
               <motion.div
                 key={i}
-                variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
-                className="bg-white rounded-3xl overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-all cursor-default"
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: i * 0.09, duration: 0.65, ease }}
+                whileHover={{ y: -8, transition: { type: "spring", stiffness: 280, damping: 22 } }}
+                className="bg-white rounded-3xl overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-shadow cursor-default"
               >
-                {/* Color bar */}
                 <div
                   className="h-1.5"
                   style={{ background: impact.color === "green" ? "#3a9e68" : "#c9a84c" }}
                 />
-                {/* Image */}
-                <div className="relative h-48">
+                <div className="relative h-44 sm:h-48">
                   <Image
                     src={impact.photo}
                     alt={impact.title}
@@ -70,23 +60,22 @@ export default function Impacts() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
-                {/* Content */}
-                <div className="p-6">
+                <div className="p-5 sm:p-6">
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center mb-3 sm:mb-4"
                     style={{ background: impact.color === "green" ? "#3a9e6815" : "#c9a84c15" }}
                   >
-                    <Icon className="w-5 h-5" style={{ color: impact.color === "green" ? "#3a9e68" : "#c9a84c" }} />
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: impact.color === "green" ? "#3a9e68" : "#c9a84c" }} />
                   </div>
-                  <h3 className="font-playfair font-semibold text-green-deep text-lg mb-2">
+                  <h3 className="font-playfair font-semibold text-green-deep text-base sm:text-lg mb-2">
                     {impact.title}
                   </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{impact.description}</p>
+                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">{impact.description}</p>
                 </div>
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

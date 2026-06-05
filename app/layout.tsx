@@ -18,11 +18,10 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Programme de Relance Agricole — Kongo Central | CDI-Bwamanda",
   description:
-    "Programme intégré de transformation agricole à Banzangongo et Boko, territoire de Mbanza-Ngungu, province du Kongo Central, RD Congo. Porté par le CDI-Bwamanda.",
+    "Programme intégré de transformation agricole à Boko, territoire de Mbanza-Ngungu, province du Kongo Central, RD Congo. Porté par le CDI-Bwamanda.",
   keywords: [
     "agriculture Congo",
     "Kongo Central",
-    "Banzangongo",
     "Boko",
     "Mbanza-Ngungu",
     "CDI-Bwamanda",
@@ -33,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Programme de Relance Agricole — Kongo Central",
     description:
-      "Transformer l'agriculture à Banzangongo et Boko, territoire de Mbanza-Ngungu, province du Kongo Central.",
+      "Transformer l'agriculture à Boko, territoire de Mbanza-Ngungu, province du Kongo Central.",
     images: [
       "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1200&q=80",
     ],

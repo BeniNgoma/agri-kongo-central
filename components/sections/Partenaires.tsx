@@ -27,7 +27,7 @@ const mainPartners = [
 
 const secondaryPartners = [
   "FAO", "PNUD", "CEREP", "Gouvernement Kongo Central",
-  "Autorités locales de Banzangongo", "Autorités locales de Boko",
+  "Autorités locales de Boko",
   "Territoire de Mbanza-Ngungu",
 ];
 
@@ -107,7 +107,7 @@ export default function Partenaires() {
           <div className="text-gold text-4xl font-serif mb-4">&ldquo;</div>
           <p className="text-white/90 text-lg font-playfair italic leading-relaxed mb-4">
             Ensemble, nous semons les bases d'une agriculture résiliente et d'un développement
-            durable au Kongo Central — de Banzangongo à Boko, jusqu'à Kinshasa.
+            durable au Kongo Central — de Boko jusqu'à Kinshasa.
           </p>
           <div className="text-4xl text-gold font-serif">&rdquo;</div>
           <div className="text-gold text-sm mt-4 font-medium">

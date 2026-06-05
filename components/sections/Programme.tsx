@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { motion } from "motion/react";
 import { Sprout, Shovel, Factory, GraduationCap, TrendingUp } from "lucide-react";
 
 const composantes = [
@@ -9,7 +8,7 @@ const composantes = [
     num: "01",
     icon: Sprout,
     title: "Production Agricole Durable",
-    desc: "Amélioration des pratiques culturales, accès aux intrants de qualité et promotion de l'agriculture intelligente face au climat à Banzangongo et Boko.",
+    desc: "Amélioration des pratiques culturales, accès aux intrants de qualité et promotion de l'agriculture intelligente face au climat à Boko.",
     color: "#3a9e68",
   },
   {
@@ -30,7 +29,7 @@ const composantes = [
     num: "04",
     icon: GraduationCap,
     title: "Renforcement des Capacités & Inclusion Sociale",
-    desc: "Formation des producteurs de Banzangongo et Boko, inclusion des femmes et des jeunes, et appui aux 80 organisations paysannes du territoire.",
+    desc: "Formation des producteurs de Boko, inclusion des femmes et des jeunes, et appui aux 80 organisations paysannes du territoire.",
     color: "#c9a84c",
   },
   {
@@ -42,68 +41,59 @@ const composantes = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
-};
-const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Programme() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-
   return (
-    <section id="programme" className="bg-green-deep py-24">
+    <section id="programme" className="bg-green-deep py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease }}
+          className="text-center mb-12 sm:mb-16"
+        >
           <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold border border-gold/30 text-gold mb-4 tracking-wider uppercase"
             style={{ background: "rgba(201,168,76,0.1)" }}>
             Composantes du Programme
           </span>
-          <h2 className="font-playfair text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="font-playfair text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             5 Piliers pour une{" "}
             <span className="text-gradient">Transformation Durable</span>
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto text-lg">
+          <p className="text-white/60 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg">
             Le programme s'articule autour de cinq composantes complémentaires pour assurer une
-            transformation agricole durable et inclusive à Banzangongo, Boko et dans tout le
+            transformation agricole durable et inclusive à Boko et dans tout le
             territoire de Mbanza-Ngungu.
           </p>
-        </div>
+        </motion.div>
 
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {composantes.map((c, i) => (
             <motion.div
               key={i}
-              variants={itemVariants}
-              whileHover={{ y: -8 }}
-              className={`relative glass rounded-3xl p-8 cursor-default overflow-hidden group ${
-                i === 4 ? "md:col-span-2 lg:col-span-1 lg:col-start-2" : ""
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: i * 0.1, duration: 0.65, ease }}
+              whileHover={{ y: -8, transition: { type: "spring", stiffness: 280, damping: 22 } }}
+              className={`relative glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 cursor-default overflow-hidden group ${
+                i === 4 ? "sm:col-span-2 lg:col-span-1 lg:col-start-2" : ""
               }`}
             >
-              {/* Number badge */}
               <div className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-xs font-bold mb-5"
                 style={{ background: `${c.color}30`, color: c.color }}>
                 {c.num}
               </div>
 
-              <c.icon className="w-10 h-10 mb-4" style={{ color: c.color }} />
+              <c.icon className="w-9 h-9 sm:w-10 sm:h-10 mb-4" style={{ color: c.color }} />
 
-              <h3 className="font-playfair text-xl font-semibold text-white mb-3 leading-tight">
+              <h3 className="font-playfair text-lg sm:text-xl font-semibold text-white mb-3 leading-tight">
                 {c.title}
               </h3>
-              <p className="text-white/60 text-sm leading-relaxed">{c.desc}</p>
+              <p className="text-white/60 text-xs sm:text-sm leading-relaxed">{c.desc}</p>
 
-              {/* Bottom bar */}
               <motion.div
                 className="absolute bottom-0 left-0 right-0 h-1 origin-left"
                 style={{ background: c.color }}
@@ -113,7 +103,7 @@ export default function Programme() {
               />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -185,7 +185,8 @@ export const impacts = [
     title: "Sécurité Alimentaire",
     description:
       "Augmentation durable de la production de maïs et de soja, améliorant la disponibilité et l'accès à une alimentation de qualité pour les communautés du Kongo Central.",
-    photo: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&q=80",
+    // femme qui récolte des légumes verts, Malawi (Richard Nyoni)
+    photo: "https://images.unsplash.com/photo-1746014929708-fcb859fd3185?w=600&q=80",
     color: "green",
   },
   {
@@ -193,7 +194,8 @@ export const impacts = [
     title: "Emplois Locaux",
     description:
       "Génération d'emplois directs et indirects pour les jeunes, les femmes et les populations rurales de Boko, territoire de Mbanza-Ngungu.",
-    photo: "https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?w=600&q=80",
+    // trois femmes portant des bassins, camp de réfugiés Rhino, Ouganda (Ninno JackJr)
+    photo: "https://images.unsplash.com/photo-1553775927-a071d5a6a39a?w=600&q=80",
     color: "gold",
   },
   {
@@ -201,7 +203,8 @@ export const impacts = [
     title: "Désenclavement Boko & Kongo Central",
     description:
       "Réhabilitation de 290 km de routes de desserte agricole reliant Boko à Mbanza-Ngungu et à la RN1 vers Kinshasa, facilitant l'accès aux marchés.",
-    photo: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
+    // piste rurale africaine avec verdure, Madagascar (Shane Ryan Herilalaina)
+    photo: "https://images.unsplash.com/photo-1776090416729-20bedcc1a207?w=600&q=80",
     color: "green",
   },
   {
@@ -209,7 +212,8 @@ export const impacts = [
     title: "Souveraineté en Huile Végétale",
     description:
       "Développement de la production locale de soja et transformation locale de l'huile végétale pour renforcer la souveraineté alimentaire du Kongo Central.",
-    photo: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&q=80",
+    // projet communautaire de plantation, Touba Thilla, Sénégal
+    photo: "https://images.unsplash.com/photo-1651838677683-f642527059c6?w=600&q=80",
     color: "gold",
   },
   {
@@ -217,7 +221,8 @@ export const impacts = [
     title: "Revenus en Hausse",
     description:
       "Augmentation de plus de 5% des revenus agricoles des ménages de Boko grâce à la mécanisation, l'organisation en coopératives et l'accès aux marchés.",
-    photo: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80",
+    // agriculteur portant une récolte, Kampala, Ouganda (Lisa Marie Theck)
+    photo: "https://images.unsplash.com/photo-1741940365425-1b9a575d373e?w=600&q=80",
     color: "green",
   },
   {
@@ -225,7 +230,8 @@ export const impacts = [
     title: "2M+ Bénéficiaires Indirects",
     description:
       "À long terme, plus de 2 millions de personnes bénéficieront des retombées économiques et alimentaires, y compris les consommateurs de Kinshasa approvisionnés via la RN1.",
-    photo: "https://images.unsplash.com/photo-1603796846097-bee99e4a601f?w=600&q=80",
+    // rassemblement communautaire, Kargi, Kenya (Ian Macharia)
+    photo: "https://images.unsplash.com/photo-1515658323406-25d61c141a6e?w=600&q=80",
     color: "gold",
   },
 ];

@@ -212,8 +212,8 @@ export const impacts = [
     title: "Souveraineté en Huile Végétale",
     description:
       "Développement de la production locale de soja et transformation locale de l'huile végétale pour renforcer la souveraineté alimentaire du Kongo Central.",
-    // graines de palmier à huile, marché Adjamé, Abidjan, Côte d'Ivoire (Eva Blue)
-    photo: "https://images.unsplash.com/photo-1552710218-bd32b0c98626?w=600&q=80",
+    // projet communautaire de plantation, Touba Thilla, Sénégal
+    photo: "https://images.unsplash.com/photo-1651838677683-f642527059c6?w=600&q=80",
     color: "gold",
   },
   {

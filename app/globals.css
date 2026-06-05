@@ -128,9 +128,3 @@
 .leaflet-container {
   z-index: 1;
 }
-
-/* Marquee animation — Activities section */
-@keyframes marquee-rtl {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}

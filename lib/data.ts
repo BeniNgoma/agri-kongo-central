@@ -105,7 +105,7 @@ export const activities = [
       "Protection des cultures contre les ravageurs",
       "Agriculture intelligente face au climat",
     ],
-    photo: "https://images.unsplash.com/photo-1543269664-76bc3997d9ea?w=800&q=80",
+    photo: "https://images.unsplash.com/photo-1594397753441-1a77dbf5e0fd?w=800&q=80",
   },
   {
     id: "02",

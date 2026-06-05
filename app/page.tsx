@@ -6,7 +6,6 @@ import Programme from "@/components/sections/Programme";
 import Resultats from "@/components/sections/Resultats";
 import Activites from "@/components/sections/Activites";
 import Impacts from "@/components/sections/Impacts";
-import Equipe from "@/components/sections/Equipe";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
@@ -20,8 +19,7 @@ export default function Home() {
         <Resultats />
         <Activites />
         <Impacts />
-        <Equipe />
-        <Contact />
+<Contact />
       </main>
       <Footer />
     </>

@@ -91,11 +91,11 @@ export default function About() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[360px] sm:h-[420px] lg:h-[480px]">
               <Image
-                src="/pdf-images/img_006.jpg"
+                src="/about-bg.jpg"
                 alt="Terrain agricole Kongo Central — vue aérienne"
                 fill
                 className="object-cover"
-                style={{ filter: "brightness(1.12) contrast(1.06) saturate(1.1)" }}
+                style={{ filter: "brightness(1.08) contrast(1.05) saturate(1.1)" }}
               />
             </div>
             {/* Overlay image — ananas produit phare */}

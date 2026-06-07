@@ -6,20 +6,24 @@ import { motion, useInView, useMotionValue, useTransform, animate } from "motion
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from "recharts";
-import { Wheat, Sprout, Truck, Building2, Leaf, TrendingUp } from "lucide-react";
+import { Leaf, Sprout, Truck, Globe, Zap, TrendingUp } from "lucide-react";
 
 const counters = [
-  { value: 3000, label: "tonnes de maïs", suffix: " t", icon: Wheat, color: "#3a9e68" },
-  { value: 2000, label: "tonnes de soja", suffix: " t", icon: Sprout, color: "#c9a84c" },
-  { value: 2, label: "camions 25t", suffix: "", icon: Truck, color: "#3a9e68" },
-  { value: 2, label: "silos de stockage", suffix: "", icon: Building2, color: "#c9a84c" },
-  { value: 10, label: "hectares cultivés", suffix: " ha", icon: Leaf, color: "#3a9e68" },
-  { value: 5, label: "hausse revenus", suffix: "%+", icon: TrendingUp, color: "#c9a84c" },
+  { value: 20, label: "hectares total", suffix: " ha", icon: Leaf, color: "#3a9e68" },
+  { value: 14, label: "terres cultivées", suffix: " ha", icon: Sprout, color: "#c9a84c" },
+  { value: 5, label: "pôles structurants", suffix: "", icon: Truck, color: "#3a9e68" },
+  { value: 2, label: "marchés stratégiques", suffix: "", icon: Globe, color: "#c9a84c" },
+  { value: 100, label: "autonomie énergétique", suffix: "%", icon: Zap, color: "#3a9e68" },
+  { value: 120, label: "millions hab. marché", suffix: "M+", icon: TrendingUp, color: "#c9a84c" },
 ];
 
-const productionData = [
-  { culture: "Maïs", objectif: 3000 },
-  { culture: "Soja", objectif: 2000 },
+const allocationData = [
+  { zone: "Vivrières", superficie: 6 },
+  { zone: "Fruitières", superficie: 8 },
+  { zone: "Transformation", superficie: 2 },
+  { zone: "Énergie verte", superficie: 2 },
+  { zone: "Eau & Piscic.", superficie: 2 },
+  { zone: "Infra & Svcs", superficie: 2 },
 ];
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -47,12 +51,6 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 export default function Resultats() {
   return (
     <section id="resultats" className="relative py-16 sm:py-24 bg-white overflow-hidden">
-      <Image
-        src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=1600&q=80"
-        alt="Agriculture Kongo Central"
-        fill
-        className="object-cover opacity-5"
-      />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -62,14 +60,14 @@ export default function Resultats() {
           className="text-center mb-12 sm:mb-16"
         >
           <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-green-bright/10 text-green-mid mb-4 tracking-wider uppercase">
-            Résultats Attendus
+            Chiffres Clés du Projet
           </span>
           <h2 className="font-playfair text-3xl sm:text-4xl lg:text-5xl font-bold text-green-deep mb-4">
-            Des Chiffres qui Parlent
+            Un Projet à Fort Impact
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-sm sm:text-base">
-            Le programme ambitionne des résultats concrets et mesurables pour les communautés de
-            Boko et tout le territoire de Mbanza-Ngungu.
+            20 hectares stratégiquement aménagés en 5 pôles complémentaires pour maximiser la rentabilité,
+            la durabilité et l'attractivité auprès des investisseurs.
           </p>
         </motion.div>
 
@@ -95,7 +93,7 @@ export default function Resultats() {
           ))}
         </div>
 
-        {/* Chart */}
+        {/* Chart — Allocation des terres */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -103,19 +101,21 @@ export default function Resultats() {
           transition={{ duration: 0.7, ease }}
           className="bg-white rounded-3xl p-5 sm:p-6 shadow-md border border-gray-100 max-w-2xl mx-auto w-full"
         >
-          <h3 className="font-playfair font-semibold text-green-deep mb-4 text-base sm:text-lg">
-            Production prévue (tonnes)
+          <h3 className="font-playfair font-semibold text-green-deep mb-1 text-base sm:text-lg">
+            Allocation des 20 hectares par pôle
           </h3>
+          <p className="text-gray-400 text-xs mb-4">Superficie en hectares par zone du plan d'aménagement</p>
           <ResponsiveContainer width="100%" height={240}>
-            <BarChart data={productionData}>
+            <BarChart data={allocationData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-              <XAxis dataKey="culture" tick={{ fill: "#6b7280", fontSize: 12 }} />
-              <YAxis tick={{ fill: "#6b7280", fontSize: 12 }} />
+              <XAxis dataKey="zone" tick={{ fill: "#6b7280", fontSize: 11 }} />
+              <YAxis tick={{ fill: "#6b7280", fontSize: 12 }} unit=" ha" />
               <Tooltip
                 contentStyle={{ background: "rgba(15,36,25,0.9)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", color: "#fff" }}
+                formatter={(value) => [`${value} ha`, "Superficie"]}
               />
               <Legend />
-              <Bar dataKey="objectif" name="Objectif (t)" fill="#3a9e68" radius={[6, 6, 0, 0]} />
+              <Bar dataKey="superficie" name="Superficie (ha)" fill="#3a9e68" radius={[6, 6, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </motion.div>

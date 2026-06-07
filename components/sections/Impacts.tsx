@@ -57,8 +57,9 @@ export default function Impacts() {
                     alt={impact.title}
                     fill
                     className="object-cover"
+                    style={{ filter: "brightness(1.15) contrast(1.06) saturate(1.1)" }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
                 <div className="p-5 sm:p-6">
                   <div

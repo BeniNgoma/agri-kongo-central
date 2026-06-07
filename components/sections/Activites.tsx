@@ -114,8 +114,9 @@ export default function Activites() {
                     alt={activities[active].title}
                     fill
                     className="object-cover"
+                    style={{ filter: "brightness(1.15) contrast(1.06) saturate(1.1)" }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-green-deep/80 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-green-deep/55 to-transparent" />
                   <div className="absolute bottom-4 left-4">
                     <span className="px-3 py-1 rounded-full text-xs font-bold bg-gold text-white">
                       {activities[active].id}

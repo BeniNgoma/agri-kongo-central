@@ -41,8 +41,8 @@ export default function Contact() {
             Nous <span className="text-gradient">Rejoindre</span>
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-sm sm:text-base">
-            Producteur de Boko, partenaire, bailleur ou journaliste — contactez
-            l'équipe Nduenga Agro Industries.
+            Investisseur, bailleur de fonds, partenaire stratégique ou institution financière —
+            contactez l'équipe TEXADA pour les études de faisabilité et le business plan du projet.
           </p>
         </motion.div>
 
@@ -70,7 +70,7 @@ export default function Contact() {
                     Message envoyé !
                   </h3>
                   <p className="text-gray-500 text-sm">
-                    L'équipe Nduenga Agro Industries vous répondra dans les 48 heures ouvrables.
+                    L'équipe TEXADA vous répondra dans les 48 heures ouvrables.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
@@ -155,8 +155,10 @@ export default function Contact() {
                       className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-green-bright transition-colors bg-white"
                     >
                       <option value="">Sélectionner un objet</option>
-                      <option value="rejoindre">Rejoindre le programme</option>
-                      <option value="partenariat">Partenariat</option>
+                      <option value="investissement">Investissement dans le projet</option>
+                      <option value="partenariat">Partenariat stratégique</option>
+                      <option value="financement">Financement & crédit bancaire</option>
+                      <option value="faisabilite">Études de faisabilité</option>
                       <option value="information">Demande d'information</option>
                       <option value="presse">Presse / Média</option>
                       <option value="autre">Autre</option>
@@ -195,10 +197,10 @@ export default function Contact() {
           >
             <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-md border border-gray-100 space-y-4 sm:space-y-5">
               {[
-                { icon: MapPin, label: "Siège", value: "Nduenga Agro Industries, Territoire de Mbanza-Ngungu, Province du Kongo Central, RD Congo" },
-                { icon: MapPin, label: "Zone d'intervention", value: "Boko — Territoire de Mbanza-Ngungu, Kongo Central" },
+                { icon: MapPin, label: "Propriétaire & Promoteur", value: "M. Didy Nduenga — Terrain 20 ha, Kongo Central, RD Congo" },
+                { icon: MapPin, label: "Structuration & Études", value: "TEXADA/2026 — Gisele Baganda, Chef de Projet" },
                 { icon: Phone, label: "Téléphone", value: "+243 XXX XXX XXX" },
-                { icon: Mail, label: "Email", value: "contact@cdibwamanda.org" },
+                { icon: Mail, label: "Email", value: "contact@texada-projet.cd" },
                 { icon: Clock, label: "Horaires", value: "Lun–Ven 08h00–17h00 (heure de Kinshasa)" },
               ].map((info, i) => (
                 <div key={i} className="flex items-start gap-3">
@@ -226,8 +228,8 @@ export default function Contact() {
 
             <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-wrap gap-3 sm:gap-4">
               {[
-                { color: "#c9a84c", name: "Boko", role: "Zone de production principale" },
-                { color: "#ffffff", name: "Mbanza-Ngungu", role: "Chef-lieu du territoire" },
+                { color: "#c9a84c", name: "Terrain 20 ha", role: "Kongo Central — sources d'eau naturelles" },
+                { color: "#ffffff", name: "Kinshasa & Matadi", role: "Marchés & ports stratégiques" },
               ].map((item) => (
                 <div key={item.name} className="flex items-center gap-2 text-xs">
                   <div className="w-3 h-3 rounded-full border border-gray-200 flex-shrink-0" style={{ background: item.color }} />

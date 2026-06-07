@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { ShieldCheck, TrendingUp, Users, Leaf } from "lucide-react";
+import { ShieldCheck, TrendingUp, Zap, Leaf } from "lucide-react";
 
 const pillars = [
-  { icon: ShieldCheck, title: "Sécurité Alimentaire", desc: "Disponibilité accrue des denrées au Kongo Central" },
-  { icon: TrendingUp, title: "Développement Économique", desc: "Croissance locale et revenus des ménages agricoles" },
-  { icon: Users, title: "Inclusion Sociale", desc: "Emplois durables pour les femmes et jeunes de Boko" },
-  { icon: Leaf, title: "Agriculture Durable", desc: "Pratiques intelligentes face au climat tropical" },
+  { icon: ShieldCheck, title: "Souveraineté Alimentaire", desc: "Production vivrière et fruitière diversifiée réduisant la dépendance aux importations" },
+  { icon: TrendingUp, title: "Transformation Locale", desc: "Jus, fruits séchés, farine de manioc — valeur ajoutée sur le terrain" },
+  { icon: Zap, title: "Autonomie Énergétique", desc: "Énergie solaire & biogaz — projet 100 % vert, conforme ESG" },
+  { icon: Leaf, title: "Impact Communautaire", desc: "Emplois locaux, revenus durables et attractivité investisseurs" },
 ];
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -27,20 +27,30 @@ export default function About() {
             transition={{ duration: 0.8, ease }}
           >
             <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-green-bright/15 text-green-mid mb-4 tracking-wider uppercase">
-              À Propos du Programme
+              Contexte & Objectif
             </span>
             <h2 className="font-playfair text-3xl sm:text-4xl lg:text-5xl font-bold text-green-deep mb-6 leading-tight">
-              Transformer l'Agriculture au{" "}
-              <span className="text-gradient">Kongo Central</span>
+              Une Opportunité Stratégique
+              <br />
+              <span className="text-gradient">au Kongo Central</span>
             </h2>
+            <p className="text-gray-600 text-base lg:text-lg leading-relaxed mb-4">
+              Dans un contexte marqué en RDC par des{" "}
+              <strong className="text-green-mid">défis énergétiques structurels</strong>, une forte dépendance aux
+              importations alimentaires transformées et une demande croissante de projets durables à impact,{" "}
+              <strong className="text-green-deep">Monsieur Didy Nduenga</strong>, propriétaire d'un terrain de{" "}
+              <strong className="text-green-deep">20 hectares avec sources d'eau naturelles</strong> au Kongo Central,
+              dispose d'une opportunité stratégique majeure.
+            </p>
             <p className="text-gray-600 text-base lg:text-lg leading-relaxed mb-8">
-              Le programme est porté par{" "}
-              <strong className="text-green-mid">Nduenga Agro Industries</strong>.{" "}
-              Il vise à transformer durablement
-              l'agriculture dans la province du Kongo Central, particulièrement dans la localité de{" "}
-              <strong className="text-green-deep">Boko</strong>, située dans le territoire de{" "}
-              <strong className="text-green-deep">Mbanza-Ngungu</strong> — zone à fort potentiel
-              agricole, stratégiquement positionnée sur l'axe de ravitaillement de Kinshasa.
+              La structuration du projet est assurée par{" "}
+              <strong className="text-green-mid">TEXADA/2026</strong>, qui conduit les études de faisabilité complètes
+              et prépare un{" "}
+              <strong className="text-green-deep">business plan bancable</strong> conforme aux exigences des banques,
+              fonds d'investissement et partenaires financiers locaux et internationaux.
+              La proximité stratégique avec{" "}
+              <strong className="text-green-deep">Kinshasa</strong> (120M+ habitants) et l'accès direct aux ports de{" "}
+              <strong className="text-green-deep">Matadi et Boma</strong> renforcent le potentiel d'export.
             </p>
 
             <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-8">
@@ -67,11 +77,11 @@ export default function About() {
               onClick={() => document.querySelector("#programme")?.scrollIntoView({ behavior: "smooth" })}
               className="px-6 sm:px-7 py-3 rounded-xl bg-green-mid text-white font-semibold text-sm hover:bg-green-deep active:scale-95 transition-all shadow-md"
             >
-              Lire notre Mission Complète
+              Voir les 5 Pôles du Projet
             </button>
           </motion.div>
 
-          {/* Right — Images */}
+          {/* Right — Images du terrain */}
           <motion.div
             initial={{ opacity: 0, x: 32 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -81,13 +91,14 @@ export default function About() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[360px] sm:h-[420px] lg:h-[480px]">
               <Image
-                src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80"
-                alt="Champs agricoles Kongo Central"
+                src="/pdf-images/img_006.jpg"
+                alt="Terrain agricole Kongo Central — vue aérienne"
                 fill
                 className="object-cover"
+                style={{ filter: "brightness(1.12) contrast(1.06) saturate(1.1)" }}
               />
             </div>
-            {/* Overlay image — caché sur mobile pour éviter le débordement */}
+            {/* Overlay image — ananas produit phare */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -96,16 +107,17 @@ export default function About() {
               className="absolute bottom-[-1.5rem] left-[-1.5rem] rounded-2xl overflow-hidden border-4 border-white shadow-xl w-36 h-36 sm:w-44 sm:h-44 hidden sm:block"
             >
               <Image
-                src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400&q=80"
-                alt="Récolte Boko"
+                src="/pdf-images/img_009.jpg"
+                alt="Ananas — produit phare du projet"
                 fill
                 className="object-cover"
+                style={{ filter: "brightness(1.1) saturate(1.15)" }}
               />
             </motion.div>
             {/* Badge flottant */}
             <div className="absolute top-4 right-4 sm:top-6 sm:right-6 px-3 sm:px-4 py-2 rounded-full text-xs font-semibold border border-gold/40 text-gold-light"
               style={{ background: "rgba(201,168,76,0.2)", backdropFilter: "blur(8px)" }}>
-              Agriculture Intelligente &amp; Durable
+              Avant-Projet Intégré · TEXADA 2026
             </div>
           </motion.div>
         </div>

@@ -3,22 +3,22 @@ import { Share2, Link, MessageSquare, Play, Mail, Phone, MapPin } from "lucide-r
 
 const footerLinks = {
   about: [
-    { label: "À Propos du Programme", href: "#a-propos" },
-    { label: "Notre Équipe", href: "#equipe" },
-    { label: "Notre Approche", href: "#programme" },
+    { label: "Contexte & Objectif", href: "#a-propos" },
+    { label: "Vision du Projet", href: "#programme" },
+    { label: "TEXADA / M. Didy Nduenga", href: "#a-propos" },
   ],
   services: [
-    { label: "Production Agricole", href: "#activites" },
-    { label: "Transformation (Huile & Soja)", href: "#activites" },
-    { label: "Infrastructures de Stockage", href: "#activites" },
-    { label: "Routes de Desserte", href: "#activites" },
-    { label: "Financement & Coopératives", href: "#activites" },
+    { label: "Production Agricole Vivrière", href: "#activites" },
+    { label: "Cultures Fruitières (Ananas...)", href: "#activites" },
+    { label: "Transformation Agroalimentaire", href: "#activites" },
+    { label: "Énergie Verte & Biogaz", href: "#activites" },
+    { label: "Pisciculture & Irrigation", href: "#activites" },
   ],
   impact: [
-    { label: "Résultats Attendus", href: "#resultats" },
-    { label: "Impacts du Programme", href: "#impacts" },
+    { label: "Chiffres Clés du Projet", href: "#resultats" },
+    { label: "Impacts Attendus", href: "#impacts" },
     { label: "Galerie Photos", href: "#galerie" },
-    { label: "Formulaire Contact", href: "#contact" },
+    { label: "Nous Contacter", href: "#contact" },
   ],
 };
 
@@ -39,17 +39,18 @@ export default function Footer() {
               />
               <div>
                 <div className="font-playfair font-bold text-white text-sm leading-tight">
-                  Nduenga Agro Industries
+                  Projet Kongo Central
                 </div>
                 <div className="text-gold/80 text-xs leading-tight">
-                  Produire au Congo, Transformer au Congo
+                  Agro-Industriel & Énergétique Vert
                 </div>
               </div>
             </div>
             <p className="text-white/60 text-sm leading-relaxed mb-5">
-              Transformer l'agriculture à{" "}
-              <strong className="text-white/80">Boko</strong>, territoire de Mbanza-Ngungu, province du
-              Kongo Central, RD Congo.
+              Projet agricole, agro-industriel & énergétique vert sur{" "}
+              <strong className="text-white/80">20 hectares</strong> au Kongo Central, RD Congo.
+              Propriétaire : <strong className="text-white/80">M. Didy Nduenga</strong> · Structuration :{" "}
+              <strong className="text-white/80">TEXADA/2026</strong>.
             </p>
             <div className="flex items-center gap-3">
               {[Share2, Link, MessageSquare, Play].map((Icon, i) => (
@@ -122,11 +123,11 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-white/50 text-xs">
                 <MapPin className="w-3.5 h-3.5 text-gold/70 flex-shrink-0" />
-                <span>Mbanza-Ngungu, Kongo Central, RDC</span>
+                <span>Terrain 20 ha, Kongo Central, RDC</span>
               </div>
               <div className="flex items-center gap-2 text-white/50 text-xs">
                 <Mail className="w-3.5 h-3.5 text-gold/70 flex-shrink-0" />
-                <span>contact@cdibwamanda.org</span>
+                <span>contact@texada-projet.cd</span>
               </div>
               <div className="flex items-center gap-2 text-white/50 text-xs">
                 <Phone className="w-3.5 h-3.5 text-gold/70 flex-shrink-0" />
@@ -142,12 +143,11 @@ export default function Footer() {
         {/* Copyright */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-white/40 text-xs">
           <span>
-            © 2026 Nduenga Agro Industries — Programme de Relance Agricole du Kongo Central. Tous droits
-            réservés.
+            © 2026 Projet Agro-Industriel & Énergétique Vert — Kongo Central, RD Congo. Structuration : TEXADA/2026. Tous droits réservés.
           </span>
           <div className="flex items-center gap-1 text-white/30">
             <Image src="/logo.png" alt="logo" width={16} height={16} className="rounded-full opacity-60" />
-            <span>Boko, Territoire de Mbanza-Ngungu</span>
+            <span>M. Didy Nduenga · Kongo Central</span>
           </div>
         </div>
       </div>

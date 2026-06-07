@@ -2,40 +2,12 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { ArrowDown, Users, Truck, TrendingUp, Globe, MapPin } from "lucide-react";
+import { Leaf, Zap, Globe, Play } from "lucide-react";
 
 const stats = [
-  { value: "500", label: "Producteurs agricoles", icon: Users },
-  { value: "10 ha", label: "Hectares cultivés", icon: Truck },
-  { value: "+5%", label: "Hausse des revenus", icon: TrendingUp },
-  { value: "200k+", label: "Bénéficiaires indirects", icon: Globe },
-];
-
-const products = [
-  {
-    name: "Maïs",
-    emoji: "🌽",
-    photo: "https://images.unsplash.com/photo-1634467524884-897d0af5e104?w=400&q=80",
-    label: "3 000 t",
-  },
-  {
-    name: "Arachide",
-    emoji: "🥜",
-    photo: "https://images.unsplash.com/photo-1575399872095-9363bf262e64?w=400&q=80",
-    label: "Production locale",
-  },
-  {
-    name: "Soja",
-    emoji: "🌱",
-    photo: "https://images.unsplash.com/photo-1639843606783-b2f9c50a7468?w=400&q=80",
-    label: "2 000 t",
-  },
-  {
-    name: "Manioc",
-    emoji: "🌿",
-    photo: "https://images.unsplash.com/photo-1764143914716-3524db64940e?w=400&q=80",
-    label: "Sécurité alim.",
-  },
+  { value: "20 ha", label: "Superficie du terrain", icon: Leaf },
+  { value: "5", label: "Pôles structurants", icon: Zap },
+  { value: "2", label: "Marchés stratégiques", icon: Globe },
 ];
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -46,178 +18,167 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden bg-green-deep">
+    <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden">
 
-      {/* Background africain */}
+      {/* Background — champ agricole Kongo Central */}
       <Image
-        src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?w=1920&q=80"
-        alt="Agriculture africaine Kongo Central"
+        src="/pdf-images/img_006.jpg"
+        alt="Terrain agricole Kongo Central — 20 hectares"
         fill
         className="object-cover"
+        style={{ filter: "brightness(1.08) saturate(1.12)" }}
         priority
       />
-      <div className="absolute inset-0"
-        style={{ background: "linear-gradient(110deg, rgba(15,36,25,0.93) 0%, rgba(15,36,25,0.80) 45%, rgba(15,36,25,0.48) 100%)" }}
+
+      {/* Gradient overlay — opaque à gauche, transparent à droite */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(100deg, rgba(5,20,10,0.82) 0%, rgba(5,20,10,0.55) 45%, rgba(5,20,10,0.10) 100%)",
+        }}
       />
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-[38%] w-px h-full opacity-20"
-          style={{ background: "linear-gradient(to bottom, transparent, #c9a84c, transparent)" }} />
-      </div>
 
       {/* Contenu principal */}
-      <div className="relative z-10 flex-1 flex items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 pb-24">
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-10 items-center w-full">
+      <div className="relative z-10 flex-1 flex items-center w-full max-w-7xl mx-auto px-6 lg:px-10 pt-24 pb-16">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center w-full">
 
-          {/* Colonne gauche */}
-          <div className="lg:col-span-3">
-            <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.7, ease }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium mb-5 border border-gold/30 text-gold-light"
-              style={{ background: "rgba(201,168,76,0.12)" }}
+          {/* Colonne gauche — Texte */}
+          <div>
+            <motion.span
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.6, ease }}
+              className="block text-xs font-bold tracking-[0.22em] uppercase mb-5"
+              style={{ color: "#4ade80" }}
             >
-              <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
-              <span className="leading-tight">Boko — Territoire de Mbanza-Ngungu, Kongo Central, RDC</span>
-            </motion.div>
+              Avant-Projet Intégré · Kongo Central
+            </motion.span>
 
             <motion.h1
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.7, ease }}
-              className="font-playfair text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5"
+              transition={{ delay: 0.3, duration: 0.7, ease }}
+              className="font-playfair text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.12] mb-6"
             >
-              Relance Agricole
+              Projet Agro-Industriel
               <br />
-              <span className="text-gradient">du Kongo Central</span>
+              pour bâtir{" "}
+              <span style={{ color: "#4ade80" }}>l&apos;avenir</span>
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6, ease }}
-              className="text-white/75 text-sm sm:text-base lg:text-lg leading-relaxed mb-8 max-w-lg"
+              transition={{ delay: 0.48, duration: 0.6, ease }}
+              className="text-white/75 text-base lg:text-lg leading-relaxed mb-9 max-w-[480px]"
             >
-              Transformer durablement la production de{" "}
-              <span className="text-gold-light font-semibold">maïs</span> et{" "}
-              <span className="text-gold-light font-semibold">d'arachide</span> pour améliorer les
-              conditions de vie des communautés rurales de Boko.
+              Production diversifiée, transformation à haute valeur ajoutée et autonomie énergétique verte sur 20 hectares avec sources d&apos;eau naturelles.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.65, duration: 0.6, ease }}
-              className="flex flex-col sm:flex-row gap-3"
+              transition={{ delay: 0.62, duration: 0.6, ease }}
+              className="flex flex-col sm:flex-row gap-4 mb-10"
             >
               <button
                 onClick={() => handleScroll("#programme")}
-                className="px-6 py-3 sm:py-3.5 rounded-xl font-semibold text-white text-sm bg-gradient-to-r from-gold to-gold-light hover:opacity-90 active:scale-95 transition-all shadow-xl"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-white text-sm transition-all active:scale-95"
+                style={{ background: "#22a855" }}
+                onMouseEnter={e => (e.currentTarget.style.background = "#16a34a")}
+                onMouseLeave={e => (e.currentTarget.style.background = "#22a855")}
               >
-                Découvrir le Programme
+                Découvrir nos projets →
               </button>
               <button
-                onClick={() => handleScroll("#contact")}
-                className="px-6 py-3 sm:py-3.5 rounded-xl font-semibold text-white text-sm border border-white/25 hover:bg-white/10 active:scale-95 transition-all"
+                onClick={() => handleScroll("#a-propos")}
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-white text-sm border border-white/40 hover:bg-white/10 active:scale-95 transition-all"
               >
-                Nous Contacter
+                En savoir plus →
               </button>
             </motion.div>
+
+            {/* Lien présentation */}
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.85, duration: 0.5 }}
+              className="flex items-center gap-3 text-white/65 hover:text-white transition-colors text-sm group"
+            >
+              <div className="w-10 h-10 rounded-full border border-white/35 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+              </div>
+              <span>Voir la présentation</span>
+            </motion.button>
           </div>
 
-          {/* Colonne droite — Stats + Photos produits */}
-          <div className="lg:col-span-2 grid grid-cols-2 gap-3">
+          {/* Colonne droite — 3 cartes stats blanches */}
+          <div className="flex flex-col gap-4 lg:pl-6">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.55 + i * 0.1, duration: 0.6, ease }}
-                whileHover={{ y: -4, transition: { type: "spring", stiffness: 300, damping: 20 } }}
-                className="rounded-2xl p-4 sm:p-5"
-                style={{
-                  background: "rgba(255,255,255,0.07)",
-                  backdropFilter: "blur(20px)",
-                  border: "1px solid rgba(255,255,255,0.12)",
-                }}
+                initial={{ opacity: 0, x: 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.45 + i * 0.13, duration: 0.65, ease }}
+                whileHover={{ x: -4, transition: { type: "spring", stiffness: 300, damping: 22 } }}
+                className="bg-white/95 backdrop-blur-md rounded-2xl p-6 flex items-center gap-5 shadow-2xl"
               >
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center mb-3"
-                  style={{ background: "rgba(201,168,76,0.2)" }}>
-                  <stat.icon style={{ width: "17px", height: "17px", color: "#c9a84c" }} />
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: "rgba(34,168,85,0.12)" }}
+                >
+                  <stat.icon className="w-6 h-6" style={{ color: "#22a855" }} />
                 </div>
-                <div className="font-playfair text-xl sm:text-2xl font-bold text-white mb-0.5">
-                  {stat.value}
+                <div>
+                  <div className="font-playfair text-3xl font-bold text-gray-900 leading-none">
+                    {stat.value}
+                  </div>
+                  <div className="text-gray-500 text-sm mt-1">{stat.label}</div>
                 </div>
-                <div className="text-white/55 text-[11px] leading-tight">{stat.label}</div>
               </motion.div>
             ))}
-
-            {/* Grille 4 produits africains — 2×2 sur mobile, 4×1 sur sm+ */}
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.05, duration: 0.6, ease }}
-              className="col-span-2 grid grid-cols-2 sm:grid-cols-4 rounded-2xl overflow-hidden"
-              style={{ border: "1px solid rgba(255,255,255,0.12)", height: "112px" }}
-            >
-              {products.map((p, i) => (
-                <div key={i} className="relative overflow-hidden group">
-                  <Image
-                    src={p.photo}
-                    alt={p.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div
-                    className="absolute inset-0 flex flex-col items-center justify-end p-1.5"
-                    style={{ background: "linear-gradient(to top, rgba(15,36,25,0.92) 0%, rgba(15,36,25,0.3) 60%, transparent 100%)" }}
-                  >
-                    <span className="text-base sm:text-lg leading-none mb-0.5">{p.emoji}</span>
-                    <span className="text-white text-[10px] font-semibold leading-tight text-center">{p.name}</span>
-                    <span className="text-gold/80 text-[9px] leading-tight text-center hidden sm:block">{p.label}</span>
-                  </div>
-                  {i < 3 && (
-                    <div className="absolute right-0 top-2 bottom-2 w-px bg-white/15" />
-                  )}
-                </div>
-              ))}
-            </motion.div>
           </div>
         </div>
       </div>
 
-      {/* Bande cultures en bas */}
+      {/* Barre du bas — réseaux sociaux + scroll */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 0.5, ease }}
-        className="relative z-10 border-t"
-        style={{ borderColor: "rgba(255,255,255,0.1)", background: "rgba(0,0,0,0.25)", backdropFilter: "blur(12px)" }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.1, duration: 0.6 }}
+        className="relative z-10 flex items-center justify-between w-full max-w-7xl mx-auto px-6 lg:px-10 pb-7"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-3 sm:gap-5 flex-wrap">
-            {[
-              { emoji: "🌽", label: "Maïs · 3 000 t" },
-              { emoji: "🥜", label: "Arachide" },
-              { emoji: "🌱", label: "Soja · 2 000 t" },
-              { emoji: "🚛", label: "2 Camions" },
-              { emoji: "🏗️", label: "2 Silos" },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-1.5 text-white/60 text-xs">
-                <span>{item.emoji}</span>
-                <span>{item.label}</span>
-                {i < 4 && <span className="text-gold/30 hidden sm:inline ml-3">│</span>}
-              </div>
-            ))}
-          </div>
-          <button
-            onClick={() => handleScroll("#a-propos")}
-            className="flex items-center gap-1.5 text-white/40 hover:text-white/70 text-xs transition-colors"
-          >
-            <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
-            <span>Explorer</span>
-          </button>
+        {/* Réseaux sociaux */}
+        <div className="flex items-center gap-3">
+          {["f", "in", "ig"].map((label, i) => (
+            <a
+              key={i}
+              href="#"
+              className="w-9 h-9 rounded-lg border border-white/25 flex items-center justify-center text-white/55 hover:text-white hover:bg-white/10 transition-all text-xs font-bold"
+            >
+              {label}
+            </a>
+          ))}
         </div>
+
+        {/* Scroll Down — centré */}
+        <button
+          onClick={() => handleScroll("#a-propos")}
+          className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 hover:text-white/80 transition-colors"
+        >
+          <div className="w-6 h-9 rounded-full border-2 border-white/30 flex items-start justify-center pt-1.5">
+            <motion.div
+              className="w-1 h-2 rounded-full bg-white/60"
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </div>
+          <span className="text-[10px] tracking-[0.18em] uppercase">Scroll Down</span>
+        </button>
+
+        {/* Spacer droit */}
+        <div className="w-28" />
       </motion.div>
     </section>
   );

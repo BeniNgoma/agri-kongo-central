@@ -24,7 +24,7 @@ export default function Hero() {
         src="/hero-bg.jpg"
         alt="Champ agricole Kongo Central — tracteur au coucher de soleil"
         fill
-        className="object-cover"
+        className="object-cover object-[68%_center] lg:object-center"
         priority
       />
 

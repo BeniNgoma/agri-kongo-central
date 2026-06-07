@@ -22,11 +22,11 @@ export default function Hero() {
 
       {/* Background — champ agricole Kongo Central */}
       <Image
-        src="/pdf-images/img_006.jpg"
+        src="/hero-bg.jpg"
         alt="Terrain agricole Kongo Central — 20 hectares"
         fill
         className="object-cover"
-        style={{ filter: "brightness(1.08) saturate(1.12)" }}
+        style={{ filter: "brightness(1.05) saturate(1.1) contrast(1.05)" }}
         priority
       />
 

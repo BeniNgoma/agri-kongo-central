@@ -19,12 +19,20 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden">
 
-      {/* ── Fond ── */}
+      {/* ── Fond desktop (paysage) ── */}
       <Image
         src="/hero-bg.jpg"
         alt="Champ agricole Kongo Central — tracteur au coucher de soleil"
         fill
-        className="object-cover object-[68%_center] lg:object-center"
+        className="object-cover object-center hidden lg:block"
+        priority
+      />
+      {/* ── Fond mobile (portrait) ── */}
+      <Image
+        src="/hero-bg-mobile.jpg"
+        alt="Champ agricole Kongo Central — tracteur au coucher de soleil"
+        fill
+        className="object-cover object-top block lg:hidden"
         priority
       />
 
